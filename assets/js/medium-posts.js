@@ -9,6 +9,10 @@ $(function () {
     $.get(' https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fmedium.com%2Ffeed%2F%40albionbame', data, function (response) {
         if (response.status == 'ok') {
             let display = ''
+            display += `<div class="col-sm-12 text-right medium-link">
+                <a href="https://albionbame.medium.com/" target="_blank">${response.feed.title}</a> |
+                <a class="rss" href="${response.feed.url}" target="_blank">RSS Feed</a>
+            </div>`
             $.each(response.items, function (k, item) {
                 display += `<div class="card col-sm-12 mb-3 mx-auto mr-5 " style="width: 20rem;">`
                 display += `<div class="card-body">`
