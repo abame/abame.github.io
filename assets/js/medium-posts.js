@@ -2,13 +2,14 @@ $(function () {
 	const mediumPromise = new Promise(function (resolve) {
 		const $content = $('#jsonContent')
 		const maxLength = 75 // maximum number of characters to extract
+		const mediumUsername = $content.data('medium-username')
 
-		$.get(' https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fmedium.com%2Ffeed%2F%40albionbame', function (response) {
+		$.get(`https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@${mediumUsername}`, function (response) {
 			if (response.status == 'ok') {
 				let display = ''
 				display += `<div class="col-sm-12 text-right medium-link">
-						<a href="https://albionbame.medium.com/" target="_blank">${response.feed.title}</a> |
-						<a class="subscribe" href="https://albionbame.medium.com/subscribe" target="_blank">Subscribe</a> |
+						<a href="https://${mediumUsername}.medium.com/" target="_blank">${response.feed.title}</a> |
+						<a class="subscribe" href="https://${mediumUsername}.medium.com/subscribe" target="_blank">Subscribe</a> |
 						<a class="rss" href="${response.feed.url}" target="_blank">RSS Feed</a>
 				</div>`
 
