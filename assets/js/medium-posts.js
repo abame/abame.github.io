@@ -11,6 +11,7 @@ $(function () {
             let display = ''
             display += `<div class="col-sm-12 text-right medium-link">
                 <a href="https://albionbame.medium.com/" target="_blank">${response.feed.title}</a> |
+                <a class="subscribe" href="https://albionbame.medium.com/subscribe" target="_blank">Subscribe</a> |
                 <a class="rss" href="${response.feed.url}" target="_blank">RSS Feed</a>
             </div>`
             $.each(response.items, function (k, item) {
