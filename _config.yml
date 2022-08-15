@@ -18,12 +18,12 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Welcome
+title: A. Bame
 email: albionbame@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Howdy, I’m Albion. 
-  I’m a web developer living in Frankfurt am Main, Germany. 
-  I'm originally from Albania. I am a fan of DIY, cycling, and camping. 
+  Howdy, I’m Albion, <br/>
+  I’m a web developer living in Frankfurt am Main, Germany, <br/>
+  originally from Albania, fan of DIY, cycling, and camping.  <br/>
   I’m also interested in travel and reading.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
