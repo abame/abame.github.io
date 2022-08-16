@@ -39,7 +39,7 @@ defaults:
       path: "_posts"
       type: posts
     values:
-      permalink: /:year/:month/:day/:title
+      permalink: /post/:title
 
 # Add your google-analytics ID here to activate google analytics
 google_analytics: G-WBWDB12T68 # out your google-analytics code

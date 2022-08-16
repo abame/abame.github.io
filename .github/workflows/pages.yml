@@ -29,12 +29,13 @@ jobs:
         uses: actions/checkout@v3
       - name: Setup Pages
         uses: actions/configure-pages@v1
-      - name: Write ENV
+      - name: Generate Posts
+        shell: bash
         env:
           CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
           CONTENTFUL_SECRET: ${{ secrets.CONTENTFUL_SECRET }}
         run: |
-          echo -e "const CONTENTFUL_SPACE_ID=\"$CONTENTFUL_SPACE_ID\";\nconst CONTENTFUL_SECRET=\"$CONTENTFUL_SECRET\";" > ./assets/js/config.js;
+          ./create-posts.sh $CONTENTFUL_SPACE_ID $CONTENTFUL_SECRET
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
