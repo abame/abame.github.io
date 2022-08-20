@@ -17,11 +17,12 @@ fi
 type curl >/dev/null 2>&1 || { echo >&2 "Required curl but it's not installed. Aborting."; exit 1; }
 
 # shellcheck disable=SC2006
-RESPONSE=`curl -s --request GET https://cdn.contentful.com/spaces/"$1"/entries?access_token="$2" | jq -r '.items'`
+RESPONSE=`curl -s --request GET https://cdn.contentful.com/spaces/"$1"/entries?access_token="$2"`
 
 items=$(echo "$RESPONSE" | jq -c -r '.[]')
 
-for item in "${items[@]}"; do
+for k in $(jq '.items | keys | .[]' <<< "$RESPONSE"); do
+  item=$(jq -r ".items[$k]" <<< "$RESPONSE");
   title=$(jq '.fields.title' <<< "$item")
   slug=$(jq '.fields.slug' <<< "$item")
 
