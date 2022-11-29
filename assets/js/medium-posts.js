@@ -14,7 +14,6 @@ $(function () {
 				</div>`
 
 				for (const item of response.items) {
-					console.log(item.description.substring(item.description.indexOf('</figure>') + 9))
 					let description = item.description
 						.substring(item.description.indexOf('</figure>') + 9)
 						.replace(/<\/?[^>]+(>|$)/g, "")
