@@ -36,7 +36,6 @@ for k in $(jq '.items | keys | .[]' <<< "$RESPONSE"); do
    title=$(jq '.fields.title' <<< "$item")
    slug=$(jq '.fields.slug' <<< "$item")
    imageIdQuotes=$(jq '.fields.headerBackgroundImage.sys.id' <<< "$item")
-   imageId=$(sed -e 's/^"//' -e 's/"$//' <<<"$imageIdQuotes")
 
    createdAt=$(jq '.sys.createdAt' <<< "$item")
    # shellcheck disable=SC2206
@@ -44,7 +43,8 @@ for k in $(jq '.items | keys | .[]' <<< "$RESPONSE"); do
    description=$(jq '.fields.description' <<< "$item")
 
    image='/img/bg-post.jpeg'
-   if [ ${#imageId} != 0 ]; then
+   if [ $imageIdQuotes != null ]; then
+      imageId=$(sed -e 's/^"//' -e 's/"$//' <<<"$imageIdQuotes")
       IMAGE=`curl -s --request GET https://$urlPrefix.contentful.com/spaces/$1/environments/master/assets/$imageId?access_token=$2`
       imageUrl=$(jq '.fields.file.url' <<< "$IMAGE")
       if [ ${#imageUrl} != 0 ]; then
