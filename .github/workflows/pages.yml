@@ -35,7 +35,7 @@ jobs:
           CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
           CONTENTFUL_SECRET: ${{ secrets.CONTENTFUL_SECRET }}
         run: |
-          ./create-posts.sh $CONTENTFUL_SPACE_ID $CONTENTFUL_SECRET
+          ./create-posts.sh $CONTENTFUL_SPACE_ID $CONTENTFUL_SECRET blogPost
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
@@ -55,3 +55,6 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
+        env:
+          CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
+          CONTENTFUL_SECRET: ${{ secrets.CONTENTFUL_SECRET }}
