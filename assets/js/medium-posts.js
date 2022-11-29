@@ -1,7 +1,7 @@
 $(function () {
 	const mediumPromise = new Promise(function (resolve) {
 		const $content = $('#jsonContent')
-		const maxLength = 75 // maximum number of characters to extract
+		const maxLength = 100 // maximum number of characters to extract
 		const mediumUsername = $content.data('medium-username')
 
 		$.get(`https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@${mediumUsername}`, function (response) {
@@ -14,10 +14,10 @@ $(function () {
 				</div>`
 
 				for (const item of response.items) {
+					console.log(item.description.substring(item.description.indexOf('</figure>') + 9))
 					let description = item.description
-						.replace(/<img[^>]*>/g,"")
-						.replace('h4', 'p')
-						.replace('h3', 'p')
+						.substring(item.description.indexOf('</figure>') + 9)
+						.replace(/<\/?[^>]+(>|$)/g, "")
 						.substr(0, maxLength)
 
 					//re-trim if we are in the middle of a word
@@ -29,7 +29,7 @@ $(function () {
 					display += `<div class="card col-sm-12 mb-3 mx-auto mr-5 " style="width: 20rem;">
 												<div class="card-body">
 													<h5 class="card-title"><a href="${item.link}">${item.title}</a></h5>
-													<img src="${item["thumbnail"]}" class="card-img-top" alt="Cover image">
+													<img src="${item["thumbnail"]}" style="width: 10em;" class="card-img-top" alt="Cover image">
 													<p class="card-text">${description}...</p>
 													<a href="${item.link}" target="_blank" class="btn btn-outline-success" >Read More</a>
 												</div>
