@@ -1,9 +1,9 @@
-#accordion{
+#title-container{
     position: relative;
     box-shadow: 0px 1px 7px #DBDBDB;
 }
 
-#accordion .head{
+#title-container .head{
     background-color: #FFFFFF;
     color: #563e6e;
     padding: 20px 30px;
@@ -14,7 +14,7 @@
     align-items: center;
 }
 
-#accordion .arrow{
+#title-container .arrow{
     color: #563e6e;
     font-size: 60px;
     transition: 0.25s ease;
@@ -22,24 +22,28 @@
     transform: rotate(-90deg);
 }
 
-#accordion .head:hover .arrow{
+#title-container .head:hover .arrow{
     opacity: 1;
 }
 
-#accordion .head:hover, #accordion .active{
+#title-container .head:hover, #title-container .active{
     background-color: #FFE77AFF;
 }
 
-#accordion .arrow-animate{
+#title-container .arrow-animate{
     transform: rotate(0deg);
     opacity: 1;
 }
 
-#accordion .content{
+#title-container .content{
     background-color: #FFFFFF;
     display: none;
     padding: 20px 30px;
     color: #333333;
+}
+
+#title-container a {
+    text-decoration: none;
 }
 
 .customInfobox {
