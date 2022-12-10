@@ -35,7 +35,7 @@ $(async function () {
     }
 
     for (const group in groupedQuestionsAnswers) {
-        html += `<div id="accordion"><div class="head"><h2>${group}</h2><i class="fas fa-angle-down arrow"></i></div>`;
+        html += `<div id="title-container"><div class="head"><h2>${group}</h2><i class="fas fa-angle-down arrow"></i></div>`;
         html += `<div class="content">`;
         for (const [index, questionAnswer] of groupedQuestionsAnswers[group].entries()) {
             html += `<p style="font-weight: bold;">Exercise ${index + 1}: <a class="showAnswer ${questionAnswer.anwser ? "" : "hidden"}" href="javascript:;">Answer</a></p>`;
