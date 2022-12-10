@@ -38,9 +38,11 @@ $(async function () {
         html += `<div id="accordion"><div class="head"><h2>${group}</h2><i class="fas fa-angle-down arrow"></i></div>`;
         html += `<div class="content">`;
         for (const [index, questionAnswer] of groupedQuestionsAnswers[group].entries()) {
-            html += `<p style="font-weight: bold;">Exercise ${index + 1}: </p>`;
+            html += `<p style="font-weight: bold;">Exercise ${index + 1}: <a class="showAnswer ${questionAnswer.anwser ? "" : "hidden"}" href="javascript:;">Answer</a></p>`;
             html += `<p>${questionAnswer.question}</p>`;
-            //console.log(questionAnswer.answer);
+            if (questionAnswer.anwser) {
+                html += `<div class="customInfobox"><div class="title">${questionAnswer.anwser.replace(/(?:\r\n|\r|\n)/g, '<br>')}</div></div>`;
+            }
         }
         html += "</div></div>";
     }
@@ -54,9 +56,11 @@ $(async function () {
 });
 
 $(document).on("click", "div.head" , function() {
-    $("div.head").removeClass('active');
-    $("div.content").css('display', 'none');
     $(this).toggleClass('active');
     $(this).parent().find('.arrow').toggleClass('arrow-animate');
     $(this).parent().find('.content').slideToggle(280);
+});
+
+$(document).on("click", "a.showAnswer" , function() {
+    $(this).parent().next().next().slideToggle(280);
 });
