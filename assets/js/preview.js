@@ -38,10 +38,10 @@ $(async function () {
         html += `<div id="title-container"><div class="head"><h2>${group}</h2><i class="fas fa-angle-down arrow"></i></div>`;
         html += `<div class="content">`;
         for (const [index, questionAnswer] of groupedQuestionsAnswers[group].entries()) {
-            html += `<p style="font-weight: bold;">Exercise ${index + 1}: <a class="showAnswer ${questionAnswer.anwser ? "" : "hidden"}" href="javascript:;">Answer</a></p>`;
+            html += `<p style="font-weight: bold;">Exercise ${index + 1}: <a class="showAnswer ${questionAnswer.answer ? "" : "hidden"}" href="javascript:;">Answer</a></p>`;
             html += `<p>${questionAnswer.question}</p>`;
-            if (questionAnswer.anwser) {
-                html += `<div class="customInfobox"><div class="title">${questionAnswer.anwser.replace(/(?:\r\n|\r|\n)/g, '<br>')}</div></div>`;
+            if (questionAnswer.answer) {
+                html += `<div class="customInfobox"><div class="title">${questionAnswer.answer.replace(/(?:\r\n|\r|\n)/g, '<br>')}</div></div>`;
             }
         }
         html += "</div></div>";
