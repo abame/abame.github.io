@@ -62,5 +62,5 @@ $(document).on("click", "div.head" , function() {
 });
 
 $(document).on("click", "a.showAnswer" , function() {
-    $(this).parent().next().next().slideToggle(280);
+    $(this).parent().nextAll("div.customInfobox").first().slideToggle(280);
 });
