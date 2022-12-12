@@ -1,1 +1,2 @@
 Disallow: /*preview
+Disallow: /*learning-paths
