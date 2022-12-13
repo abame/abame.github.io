@@ -6,13 +6,15 @@
     "generate:learning-path": "node generate-pages.js learningPath",
     "generate:learning-path:preview": "node generate-pages.js learningPath preview",
     "generate:blog-post": "node generate-pages.js blogPost",
-    "generate:blog-post:preview": "node generate-pages.js blogPost preview"
+    "generate:blog-post:preview": "node generate-pages.js blogPost preview",
+    "generate:medium": "node generate-medium.js"
   },
   "dependencies": {
     "@contentful/rich-text-html-renderer": "^16.0.2",
     "contentful": "^9.2.14",
     "dotenv": "^16.0.3",
     "fs": "^0.0.1-security",
+    "node-fetch": "2",
     "nunjucks": "^3.2.3"
   }
 }
