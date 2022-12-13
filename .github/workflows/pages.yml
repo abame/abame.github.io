@@ -29,13 +29,18 @@ jobs:
         uses: actions/checkout@v3
       - name: Setup Pages
         uses: actions/configure-pages@v2
-      - name: Generate Posts
-        shell: bash
-        env:
-          CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
-          CONTENTFUL_SECRET: ${{ secrets.CONTENTFUL_SECRET }}
+
+      - name: Use Node.js 18.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+
+      - name: Generate Blog Posts
         run: |
-          ./create-posts.sh $CONTENTFUL_SPACE_ID $CONTENTFUL_SECRET blogPost
+          cd generate-files
+          yarn install
+          yarn generate:blog-post
+
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
