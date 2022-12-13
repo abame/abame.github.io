@@ -21,7 +21,7 @@ layout: default
 
 <div class="container">
     <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="col-lg-12 col-md-12 mx-auto">
 
             {{ content }}
 
@@ -32,20 +32,12 @@ layout: default
                 <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
                     <h2 class="post-title">{{ post.title }}</h2>
                     {% if post.subtitle %}
-                    <h3 class="post-subtitle">{{ post.subtitle }}</h3>
+                        <p class="post-subtitle">{{ post.subtitle }}</p>
                     {% else %}
-                    <h3 class="post-subtitle">{{ post.excerpt | strip_html | truncatewords: 15 }}</h3>
+                        <p class="post-subtitle">{{ post.excerpt | strip_html | truncatewords: 15 }}</p>
                     {% endif %}
                 </a>
-                <p class="post-meta">Posted by
-                    {% if post.author %}
-                    {{ post.author }}
-                    {% else %}
-                    {{ site.author }}
-                    {% endif %}
-                    on
-                    {{ post.date | date: '%B %d, %Y' }}
-                </p>
+                <p class="post-meta">Posted on {{ post.date | date: '%B %d, %Y' }}</p>
             </article>
             {% endfor %}
 
