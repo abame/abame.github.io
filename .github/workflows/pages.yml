@@ -20,6 +20,11 @@ concurrency:
   group: "pages"
   cancel-in-progress: true
 
+env:
+  CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
+  CONTENTFUL_SECRET: ${{ secrets.CONTENTFUL_SECRET }}
+  PREVIEW_CONTENTFUL_SECRET: ${{ secrets.PREVIEW_CONTENTFUL_SECRET }}
+  
 jobs:
   # Build job
   build:
