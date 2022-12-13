@@ -24,19 +24,12 @@ nunjucks.configure('templates', { autoescape: false });
 const client = contentful.createClient(contentfulConfig);
 // ============ SETUP CONFIGURATION END ===============
 
-const camalize = (str) => {
-    return str.toLowerCase().replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => chr.toUpperCase());
-}
-
-const kebabCase = string => string
-.replace(/([a-z])([A-Z])/g, "$1-$2")
-.replace(/[\s_]+/g, '-')
-.toLowerCase();
+const kebabCase = string => string.replace(/([a-z])([A-Z])/g, "$1-$2").replace(/[\s_]+/g, '-').toLowerCase();
 
 client.getEntries({order: 'sys.createdAt', content_type: contentType})
     .then((entries) => {
         for (const entry of entries.items) {
-            directory = entry.fields.learningType !== undefined ? camalize(entry.fields.learningType) : directory
+            directory = entry.fields.learningType !== undefined ? kebabCase(entry.fields.learningType) : directory
             const groupedQuestionsAnswers = entry.fields.questionsAnswers !== undefined ? entry.fields.questionsAnswers.reduce(
                 (result, item) => ({
                 ...result,
@@ -52,6 +45,6 @@ client.getEntries({order: 'sys.createdAt', content_type: contentType})
                 description: richTextRenderer.documentToHtmlString(entry.fields.description ?? ""),
                 questionsAnswers: groupedQuestionsAnswers,
             });
-            fs.writeFileSync(`../_${directory}/${entry.sys.createdAt.split('T')[0]}-${camalize(entry.fields.title)}.html`, html);
+            fs.writeFileSync(`../_${directory}/${entry.sys.createdAt.split('T')[0]}-${kebabCase(entry.fields.title)}.html`, html);
         }
     });
