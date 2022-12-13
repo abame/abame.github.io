@@ -42,6 +42,8 @@ defaults:
       layout: post
       permalink: /post/:title
 
+exclude: ['generate-files']
+
 # Add your google-analytics ID here to activate google analytics
 google_analytics: G-WBWDB12T68 # out your google-analytics code
 
