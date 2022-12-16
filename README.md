@@ -1,17 +1,20 @@
 # Welcome to my personal site/blog via Gihub Pages
 
-This site/blog is build and published 100% with Jekyll and Github Pages.
-For all usage and documentation please see: <http://jekyllbootstrap.com>
+This site/blog is build and published with Jekyll, Node.js and Github Pages .
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+For all usage and documentation please see: <http://jekyllbootstrap.com>
 
 ## Jekyll Themes
 
 Pages site will use the layout and styles from the Jekyll theme you have selected. The name of this theme is saved in the Jekyll `_config.yml` configuration file.
 
-## Support or Contact
+## Node.js
 
-Having trouble with Pages? Check out the [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+Node.js is used to generate the pages needed for Jekyll to generate the site. 
+
+The content is fetched from [Contentful - Headless CMS](https://www.contentful.com/) by using the scripts found under `generate-files`.
+
+[Nunjucks](https://mozilla.github.io/nunjucks/) is used to generate the files that are required from Jekyll based on the given templates.
 
 ## License
 
