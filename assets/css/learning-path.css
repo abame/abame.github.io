@@ -70,3 +70,12 @@
 .hidden {
     display: none;
 }
+
+.single-post {
+    margin-top: 2rem;
+}
+
+.post-preview p {
+    margin: 0;
+    line-height: normal;
+}

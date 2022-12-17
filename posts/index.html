@@ -15,6 +15,11 @@ background: '/img/bg-post.jpeg'
             <p class="post-subtitle">{{ post.excerpt | strip_html | truncatewords: 15 }}</p>
         {% endif %}
     </a>
+    {% if post.subtitle %}
+    <p class="post-subtitle">{{ post.subtitle }}</p>
+    {% else %}
+    <p class="post-subtitle">{{ post.excerpt | strip_html | truncatewords: 15 }}</p>
+    {% endif %}
     <p class="post-meta">Posted on {{ post.date | date: '%B %d, %Y' }}</p>
 </article>
 

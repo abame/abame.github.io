@@ -1,0 +1,38 @@
+---
+title: "{{ title }}"
+date: "{{ date }}"
+background: {{ backgroundImage }}
+---
+
+<div class='single-post'>
+    <article class="post-preview">
+        {{ description }}
+        {% for group, questionAnswers in questionsAnswers %}
+        <div id="title-container">
+            <div class="head">
+                <h2>{{ group }}</h2><i class="fas fa-angle-down arrow"></i>
+            </div>
+            <div class="content">
+                {% for questionAnswer in questionAnswers %}
+                    <p style="font-weight: bold;">
+                        Exercise {{ loop.index }}: <a class="showAnswer" href="javascript:;">Answer</a>
+                    </p>
+                    <p>{{ questionAnswer.question }}</p>
+                    {% if questionAnswer.answer %}
+                        <div class="customInfobox">
+                            <div class="title">{{ questionAnswer.answer }}</div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </article>
+</div>
+<script type="text/javascript">
+    $("div.head").click(function() {
+        $(this).toggleClass('active');
+        $(this).parent().find('.arrow').toggleClass('arrow-animate');
+        $(this).parent().find('.content').slideToggle(280);
+    });
+</script>

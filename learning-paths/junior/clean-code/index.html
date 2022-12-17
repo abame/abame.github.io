@@ -1,0 +1,11 @@
+---
+layout: page
+title: Clean Code
+background: '/img/bg-post.jpeg'
+---
+
+<ol>
+{% for item in site.cleanCode %}
+  <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+{% endfor %}
+</ol>

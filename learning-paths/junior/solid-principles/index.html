@@ -1,0 +1,11 @@
+---
+layout: page
+title: Solid Principles
+background: '/img/bg-post.jpeg'
+---
+
+<ol>
+{% for item in site.solidPrinciples %}
+  <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+{% endfor %}
+</ol>
