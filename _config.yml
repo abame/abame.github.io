@@ -34,6 +34,20 @@ xing_username: 'Albion_Bame'
 telegram_username: 'AlbionBame'
 medium_username: 'albionbame'
 
+collections:
+  masterCli:
+    output: true
+  solidPrinciples:
+    output: true
+  designPatterns:
+    output: true
+  cleanCode:
+    output: true
+  tests:
+    output: true
+
+exclude: ['generate-files']
+
 defaults:
   - scope:
       path: "_posts"
@@ -41,6 +55,18 @@ defaults:
     values:
       layout: post
       permalink: /post/:title
+  - scope:
+      path: "_masterCli"
+      type: masterCli
+    values:
+      layout: learningPath
+      permalink: /learning-paths/junior/master-cli/:title
+  - scope:
+      path: "_solidPrinciples"
+      type: solidPrinciples
+    values:
+      layout: learningPath
+      permalink: /learning-paths/junior/solid-principles/:title
 
 exclude: ['generate-files']
 
