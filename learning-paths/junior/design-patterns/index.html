@@ -4,8 +4,19 @@ title: Design Patterns
 background: '/img/bg-post.jpeg'
 ---
 
-<ol>
-{% for item in site.designPatterns %}
-  <li><a href="{{ item.url }}">{{ item.title }}</a></li>
-{% endfor %}
-</ol>
+{% if site.designPatterns.size == 0 %}
+  <div class="animated-text">
+    <div>Attention: </div> 
+    <div> 
+      <span>This page has no content. Check again latter.</span>
+    </div>
+  </div>
+{% endif %}
+
+<div class="row">
+  {% for item in site.designPatterns %}
+    <a href="{{ item.url }}" class="column-4 project light-gray">
+      <h3 class="project-text">{{ item.title }}</h2>
+    </a>
+  {% endfor %}
+</div>

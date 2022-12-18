@@ -25,15 +25,18 @@ const client = contentful.createClient(contentfulConfig);
 // ============ SETUP CONFIGURATION END ===============
 
 const kebabCase = string => string.replace(/([a-z])([A-Z])/g, "$1-$2").replace(/[\s_]+/g, '-').toLowerCase();
+const camalize = (str) => {
+    return str.toLowerCase().replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => chr.toUpperCase());
+}
 
 client.getEntries({order: 'sys.createdAt', content_type: contentType})
     .then((entries) => {
         for (const entry of entries.items) {
-            directory = entry.fields.learningType !== undefined ? kebabCase(entry.fields.learningType) : directory
+            directory = entry.fields.learningType !== undefined ? camalize(entry.fields.learningType) : directory
             const groupedQuestionsAnswers = entry.fields.questionsAnswers !== undefined ? entry.fields.questionsAnswers.reduce(
                 (result, item) => ({
                 ...result,
-                [item["group"]]: [{...item, answer: item.answer.replace(/(?:\r\n|\r|\n)/g, '<br>')}],
+                [item["group"]]: [{...item, answer: item.answer}],
                 }), 
                 {},
             ) : [];

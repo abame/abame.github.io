@@ -1,0 +1,110 @@
+.column-4 {
+    float: left;
+    width: 21%;
+    padding: 10px;
+    margin:20px;
+    height: 250px;
+}
+
+.image-left {
+  background: url('../../img/project-left.jpeg');
+  background-size: cover;
+}
+
+.white {
+  background-color:white;
+}
+
+.light-blue {
+  background-color:#209BFF;
+}
+
+.dark-blue {
+  background-color:#112d4e;
+}
+
+.light-gray {
+  background-color:#F9F7F7;
+}
+
+.image-right {
+  background: url('../../img/project-right.jpeg');
+  background-size: cover;
+}
+
+.project-text {
+  text-align:center;
+  font-size:2rem;
+}
+
+h3.project-text {
+    font-size: 1.5rem;
+}
+
+.project {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project:hover {
+  background-color:#FEDE00;
+  text-decoration: none;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300');
+
+div.animated-text {
+  text-align:center;
+  color:#555;
+  font-family:'Roboto';
+  font-weight:300;
+  font-size:32px;
+  overflow:hidden;
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -webkit-transform: translate3d(0,0,0);
+  min-height: 3.5em;
+}
+
+div.animated-text div {
+  display:inline-block;
+  overflow:hidden;
+  white-space:nowrap;
+}
+
+div.animated-text div:first-of-type {
+  animation: showup 7s infinite;
+}
+
+div.animated-text div:last-of-type {
+  width:0px;
+  animation: reveal 7s infinite;
+}
+
+div.animated-text div:last-of-type span {
+  margin-left:-355px;
+  animation: slidein 7s infinite;
+}
+
+@keyframes showup {
+    0% {opacity:0;}
+    20% {opacity:1;}
+    80% {opacity:1;}
+    100% {opacity:0;}
+}
+
+@keyframes slidein {
+    0% { margin-left:-800px; }
+    20% { margin-left:-800px; }
+    35% { margin-left:0px; }
+    100% { margin-left:0px; }
+}
+
+@keyframes reveal {
+    0% {opacity:0;width:0px;}
+    20% {opacity:1;width:0px;}
+    30% {width:600px;}
+    80% {opacity:1;}
+    100% {opacity:0;width:600px;}
+}

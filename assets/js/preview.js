@@ -41,7 +41,7 @@ $(async function () {
             html += `<p style="font-weight: bold;">Exercise ${index + 1}: <a class="showAnswer ${questionAnswer.answer ? "" : "hidden"}" href="javascript:;">Answer</a></p>`;
             html += `<p>${questionAnswer.question}</p>`;
             if (questionAnswer.answer) {
-                html += `<div class="customInfobox"><div class="title">${questionAnswer.answer.replace(/(?:\r\n|\r|\n)/g, '<br>')}</div></div>`;
+                html += `<div class="customInfobox"><div class="title">${questionAnswer.answer}</div></div>`;
             }
         }
         html += "</div></div>";
@@ -53,6 +53,7 @@ $(async function () {
         const headerBackgroundImage = await $.get(`https://preview.contentful.com/spaces/${params.get('spaceId')}/environments/master/assets/${headerBackgroundImageId}?access_token=${params.get('token')}`);
         $('header.masthead').css('background', `url('${headerBackgroundImage.fields.file.url.replace('//', 'https://')}') 0% 0% / 100% 100% no-repeat`);
     }
+    hljs.highlightAll();
 });
 
 $(document).on("click", "div.head" , function() {
@@ -64,3 +65,4 @@ $(document).on("click", "div.head" , function() {
 $(document).on("click", "a.showAnswer" , function() {
     $(this).parent().nextAll("div.customInfobox").first().slideToggle(280);
 });
+hljs.highlightAll();

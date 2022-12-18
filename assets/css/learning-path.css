@@ -47,12 +47,7 @@
 }
 
 .customInfobox {
-    background-color: rgba(0,0,0,0.5);
-    color: white;
-    border-radius: 10px;
-    padding: 10px;
-    font-size:12px;
-    pointer-events:auto !important;
+    margin-top: 1rem;
     display: none;
 }
 
