@@ -74,3 +74,22 @@
     margin: 0;
     line-height: normal;
 }
+
+.meta {
+    font-size: 0.8rem;
+    display: inline-flex;
+    align-items: center;
+    padding-left: 1rem;
+}
+
+.page-title .page-heading {
+    margin-bottom: 2rem;
+    display: flex;
+}
+
+.page-title .page-heading h1 {
+    word-break: break-word;
+    display: inline-flex;
+    align-items: center;
+    max-width: 80%;
+}

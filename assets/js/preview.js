@@ -27,8 +27,9 @@ $(async function () {
     const createdAt = new Date(article[0].sys.createdAt);
     const month = createdAt.toLocaleString('default', { month: 'long' });
     const headerBackgroundImageId = article[0].fields.headerBackgroundImage?.sys.id;
-    $("div.page-heading > h1").html(article[0].fields.title);
-    $("div.page-heading").append(`<span class="meta">Posted on ${month} ${createdAt.getDate()}, ${createdAt.getFullYear()}</span>`);
+    $(".masthead .page-heading > h1").remove();
+    //$("div.page-heading > h1").html(article[0].fields.title);
+    $(".page-title div.page-heading").append(`<h1>${article[0].fields.title}</h1><span class="meta">Posted on ${month} ${createdAt.getDate()}, ${createdAt.getFullYear()}</span>`);
     let html = "";
     if(article[0].fields.description !== undefined) {
         html += await documentToHtmlString(article[0].fields.description);
