@@ -33,13 +33,11 @@ client.getEntries({order: 'sys.createdAt', content_type: contentType})
     .then((entries) => {
         for (const entry of entries.items) {
             directory = entry.fields.learningType !== undefined ? camalize(entry.fields.learningType) : directory
-            const groupedQuestionsAnswers = entry.fields.questionsAnswers !== undefined ? entry.fields.questionsAnswers.reduce(
-                (result, item) => ({
-                ...result,
-                [item["group"]]: [{...item, answer: item.answer}],
-                }), 
-                {},
-            ) : [];
+            const groupedQuestionsAnswers = entry.fields.questionsAnswers !== undefined ? entry.fields.questionsAnswers.reduce((result, item) => {
+                result[item.group] = result[item.group] ? result[item.group] : [];
+                result[item.group].push(item);
+                return result;
+              }, {}) : [];
             const image = entry.fields.headerBackgroundImage !== undefined ? `https:${entry.fields.headerBackgroundImage.fields.file.url}` : defaultImage;
             const html = nunjucks.render(`${kebabCase(contentType)}.html`, { 
                 title: entry.fields.title,

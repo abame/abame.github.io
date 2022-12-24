@@ -93,3 +93,7 @@
     align-items: center;
     max-width: 80%;
 }
+
+div[class^="exercise-"] {
+    margin-top: 1rem;
+}
