@@ -14,8 +14,13 @@ const groupByProperty = (arrayOfObjects = [], groupBy = "") => {
       }, {});
 };
 
+const capitalize = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 module.exports = {
     toKebabCase: kebabCase,
     toCamelCase: camalize,
-    groupByProperty
+    groupByProperty,
+    capitalize
 }

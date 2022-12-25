@@ -35,6 +35,8 @@
 .project-text {
   text-align:center;
   font-size:2rem;
+  text-transform: uppercase;
+  word-break: break-all;
 }
 
 h3.project-text {

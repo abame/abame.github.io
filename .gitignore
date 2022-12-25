@@ -7,4 +7,3 @@ generate-files/.env
 !_*/.gitkeep
 _*/*
 learning-paths/
-!/learning-paths/index.html
