@@ -1,10 +1,10 @@
 ---
 layout: page
-title: Design Patterns
+title: "{{ learningTypeName }}"
 background: '/img/bg-post.jpeg'
 ---
 
-{% if site.designPatterns.size == 0 %}
+{% if site.{{ learningTypeName }}.size == 0 %}
   <div class="animated-text">
     <div>Attention: </div> 
     <div> 
@@ -14,7 +14,7 @@ background: '/img/bg-post.jpeg'
 {% endif %}
 
 <div class="row">
-  {% for item in site.designPatterns %}
+  {% for item in site.{{ learningTypeName }} %}
     <a href="{{ item.url }}" class="column-4 project light-gray">
       <h3 class="project-text">{{ item.title }}</h2>
     </a>
