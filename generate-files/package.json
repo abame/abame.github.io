@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "generate:learning-types": "node generate-learning-types.js",
     "generate:learning-path": "node generate-pages.js learningPath",
     "generate:learning-path:preview": "node generate-pages.js learningPath preview",
     "generate:blog-post": "node generate-pages.js blogPost",
@@ -13,7 +14,7 @@
     "@contentful/rich-text-html-renderer": "^16.0.2",
     "contentful": "^9.2.14",
     "dotenv": "^16.0.3",
-    "fs": "^0.0.1-security",
+    "fs-extra": "^11.1.0",
     "node-fetch": "2",
     "nunjucks": "^3.2.3"
   }

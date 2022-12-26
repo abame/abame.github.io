@@ -40,12 +40,19 @@ jobs:
         with:
           node-version: 18.x
 
-      - name: Generate Pages
+      - name: Generate Blog Pages
         run: |
           cd generate-files
           yarn install
           yarn generate:blog-post
           yarn generate:medium
+
+      - name: Generate Learning Paths
+        run: |
+          cd generate-files
+          yarn install
+          yarn generate:learning-types
+          yarn generate:learning-path
 
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1

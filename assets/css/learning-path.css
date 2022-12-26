@@ -47,12 +47,7 @@
 }
 
 .customInfobox {
-    background-color: rgba(0,0,0,0.5);
-    color: white;
-    border-radius: 10px;
-    padding: 10px;
-    font-size:12px;
-    pointer-events:auto !important;
+    margin-top: 1rem;
     display: none;
 }
 
@@ -78,4 +73,27 @@
 .post-preview p {
     margin: 0;
     line-height: normal;
+}
+
+.meta {
+    font-size: 0.8rem;
+    display: inline-flex;
+    align-items: center;
+    padding-left: 1rem;
+}
+
+.page-title .page-heading {
+    margin-bottom: 2rem;
+    display: flex;
+}
+
+.page-title .page-heading h1 {
+    word-break: break-word;
+    display: inline-flex;
+    align-items: center;
+    max-width: 80%;
+}
+
+div[class^="exercise-"] {
+    margin-top: 1rem;
 }
