@@ -34,6 +34,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
       - name: Setup Pages
         uses: actions/configure-pages@v2
 
@@ -41,18 +42,27 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18.x
+      
+      - name: Install Node Modules
+        run: |
+          cd generate-files
+          yarn install
+
+      - name: Cache modules
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/generate-files/node_modules
 
       - name: Generate Blog Pages
         run: |
           cd generate-files
-          yarn install
           yarn generate:blog-post
           yarn generate:medium
 
       - name: Generate Learning Paths
         run: |
           cd generate-files
-          yarn install
           yarn generate:learning-types
           yarn generate:learning-path
 
