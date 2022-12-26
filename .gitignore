@@ -1,7 +1,9 @@
 .sass-cache
 .jekyll-cache
 .jekyll-metadata
+!/generate-files
 generate-files/node_modules
 generate-files/.env
 !_*/.gitkeep
 _*/*
+learning-paths/

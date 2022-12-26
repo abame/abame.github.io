@@ -27,8 +27,9 @@ $(async function () {
     const createdAt = new Date(article[0].sys.createdAt);
     const month = createdAt.toLocaleString('default', { month: 'long' });
     const headerBackgroundImageId = article[0].fields.headerBackgroundImage?.sys.id;
-    $("div.page-heading > h1").html(article[0].fields.title);
-    $("div.page-heading").append(`<span class="meta">Posted on ${month} ${createdAt.getDate()}, ${createdAt.getFullYear()}</span>`);
+    $(".masthead .page-heading > h1").remove();
+    //$("div.page-heading > h1").html(article[0].fields.title);
+    $(".page-title div.page-heading").append(`<h1>${article[0].fields.title}</h1><span class="meta">Posted on ${month} ${createdAt.getDate()}, ${createdAt.getFullYear()}</span>`);
     let html = "";
     if(article[0].fields.description !== undefined) {
         html += await documentToHtmlString(article[0].fields.description);
@@ -38,11 +39,12 @@ $(async function () {
         html += `<div id="title-container"><div class="head"><h2>${group}</h2><i class="fas fa-angle-down arrow"></i></div>`;
         html += `<div class="content">`;
         for (const [index, questionAnswer] of groupedQuestionsAnswers[group].entries()) {
-            html += `<p style="font-weight: bold;">Exercise ${index + 1}: <a class="showAnswer ${questionAnswer.answer ? "" : "hidden"}" href="javascript:;">Answer</a></p>`;
+            html += `<div class="exercise-${index}"><p style="font-weight: bold;">Exercise ${index + 1}: <a class="showAnswer ${questionAnswer.answer ? "" : "hidden"}" href="javascript:;">Answer</a></p>`;
             html += `<p>${questionAnswer.question}</p>`;
             if (questionAnswer.answer) {
-                html += `<div class="customInfobox"><div class="title">${questionAnswer.answer.replace(/(?:\r\n|\r|\n)/g, '<br>')}</div></div>`;
+                html += `<div class="customInfobox"><div class="title">${questionAnswer.answer}</div></div>`;
             }
+            html += "</div>";
         }
         html += "</div></div>";
     }
@@ -53,6 +55,7 @@ $(async function () {
         const headerBackgroundImage = await $.get(`https://preview.contentful.com/spaces/${params.get('spaceId')}/environments/master/assets/${headerBackgroundImageId}?access_token=${params.get('token')}`);
         $('header.masthead').css('background', `url('${headerBackgroundImage.fields.file.url.replace('//', 'https://')}') 0% 0% / 100% 100% no-repeat`);
     }
+    hljs.highlightAll();
 });
 
 $(document).on("click", "div.head" , function() {
@@ -64,3 +67,4 @@ $(document).on("click", "div.head" , function() {
 $(document).on("click", "a.showAnswer" , function() {
     $(this).parent().nextAll("div.customInfobox").first().slideToggle(280);
 });
+hljs.highlightAll();

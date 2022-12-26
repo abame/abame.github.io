@@ -13,8 +13,6 @@ layout: default
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="post-heading">
-            <h1 style="text-transform: capitalize">{{ page.title }}</h1>
-            <span class="meta">Posted on {{ page.date | date: '%B %d, %Y' }}</span>
           </div>
         </div>
       </div>
@@ -25,6 +23,17 @@ layout: default
     <div class="row">
       <div class="col-lg-12 col-md-12 mx-auto">
 
+        <div class="container page-title">
+          <div class="row">
+              <div class="col-lg-12 col-md-12 mx-auto">
+              <div class="page-heading">
+                <h1>{{ page.title }}</h1>
+                <span class="meta">Posted on {{ page.date | date: '%B %d, %Y' }}</span>
+              </div>
+              </div>
+          </div>
+      </div>
+      
       <a href="https://www.linkedin.com/shareArticle?url={{ site.url }}{{ page.url }}&title={{ page.title }}" target="_blank">
         <img alt="Share on LinkedIn" src="/img/in-share.png" style="padding-top: 0.5rem;width: 4rem;">
       </a>

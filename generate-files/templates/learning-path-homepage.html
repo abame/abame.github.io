@@ -1,0 +1,15 @@
+---
+layout: page
+title: Learning Paths
+background: '/img/bg-post.jpeg'
+---
+
+<div class="row">
+    <div class="column-4 project image-left"></div>
+    {% for item in items %}
+        <a href="/learning-paths/{{ item.careerType }}/{{ item.learningTypeDirectory }}/" class="column-4 project light-gray">
+            <h4 class="project-text">{{ item.learningTypeName }}</h4>
+        </a>
+    {% endfor %}
+    <div class="column-4 project image-right"></div>
+</div>
