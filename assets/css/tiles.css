@@ -54,12 +54,6 @@ h3.project-text {
   text-decoration: none;
 }
 
-@font-face {
-  font-family: "Roboto";
-  src: url("https://fonts.googleapis.com/css?family=Roboto:300");
-  font-display: swap;
-}
-
 div.animated-text {
   text-align:center;
   color:#555;
