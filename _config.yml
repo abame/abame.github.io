@@ -71,7 +71,7 @@ defaults:
 exclude: ['generate-files']
 
 # Add your google-analytics ID here to activate google analytics
-#google_analytics: G-MG8Q73CDBY # out your google-analytics code
+google_analytics: G-MG8Q73CDBY # out your google-analytics code
 
 # Build settings
 markdown: kramdown
