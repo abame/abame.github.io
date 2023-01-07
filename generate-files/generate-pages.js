@@ -5,7 +5,7 @@ const richTextRenderer = require('@contentful/rich-text-html-renderer');
 
 const contentType = process.argv[2];
 let directory = contentType === "blogPost" ? "posts" : undefined;
-const defaultImage = '/img/bg-post.jpeg';
+const defaultImage = '/img/bg-post.webp';
 
 config.client.getEntries({order: 'sys.createdAt', content_type: contentType})
     .then((entries) => {
