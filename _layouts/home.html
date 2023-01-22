@@ -4,7 +4,7 @@ layout: default
 
 <!-- Page Header -->
 <header class="masthead" {% if page.background %}
-        style="background-image: url('{{ page.background | prepend: site.baseurl | replace: '//', '/' }}');" {% endif %}>
+    style="background-image: url('{{ page.background | prepend: site.baseurl | replace: '//', '/' }}');" {% endif %}>
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
@@ -19,10 +19,33 @@ layout: default
     </div>
 </header>
 
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-md-8 mx-auto">
-            {% include mailchimp-subscribe.html %}
+<div class="row">
+    <div class="col-lg-6 col-md-6 mx-auto">
+        <!-- Home Post List -->
+        {% for post in site.posts limit : 3 %}
+
+        <article class="post-preview">
+            <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
+                <h2 class="post-title">{{ post.title }}</h2>
+                {% if post.subtitle %}
+                <p class="post-subtitle">{{ post.subtitle }}</p>
+                {% else %}
+                <p class="post-subtitle">{{ post.excerpt | strip_html | truncatewords: 15 }}</p>
+                {% endif %}
+            </a>
+            <p class="post-meta">Posted on {{ post.date | date: '%B %d, %Y' }}</p>
+        </article>
+        {% endfor %}
+        {% if site.posts.size > 3 %}
+        <!-- Pager -->
+        <div class="clearfix view-all-posts">
+            <a class="btn btn-primary float-right" href="/posts">View All Posts &rarr;</a>
         </div>
+        {% endif %}
+    </div>
+</div>
+<div class="row" style="padding-top: 2rem;">
+    <div class="col-lg-6 col-md-6 mx-auto">
+        {% include mailchimp-subscribe.html %}
     </div>
 </div>
