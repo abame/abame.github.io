@@ -16,6 +16,7 @@ fetch(`https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@${m
                 let description = item.description
                     .substring(item.description.indexOf('</figure>') + 9)
                     .replace(/<\/?[^>]+(>|$)/g, "")
+                    .replace('ss="medium-feed-item">', "")
                     .substr(0, maxLength)
     
                 //re-trim if we are in the middle of a word
