@@ -12,7 +12,11 @@ config.client.getEntries({order: 'sys.createdAt', content_type: contentType})
         for (const entry of entries.items) {
             directory = entry.fields.learningType !== undefined ? helpers.toCamelCase(entry.fields.learningType) : directory
             const groupedQuestionsAnswers = entry.fields.questionsAnswers !== undefined ? helpers.groupByProperty(entry.fields.questionsAnswers, "group") : [];
-            const image = entry.fields.headerBackgroundImage !== undefined ? `https:${entry.fields.headerBackgroundImage.fields.file.url}` : defaultImage;
+            let image = defaultImage;
+            if (entry.fields.headerBackgroundImage !== undefined) {
+                console.log(entry.fields.headerBackgroundImage.fields.file.url);
+                image = `https:${entry.fields.headerBackgroundImage.fields.file.url}`;
+            }
             const html = config.templateRenderer.render(`${helpers.toKebabCase(contentType)}.html`, { 
                 title: entry.fields.title,
                 date: entry.sys.createdAt,

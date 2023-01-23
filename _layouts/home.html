@@ -19,36 +19,38 @@ layout: default
     </div>
 </header>
 
-<div class="row">
-    <div class="col-md-5 offset-md-2">
-        <div class="row">
-            <!-- Home Post List -->
-            {% for post in site.posts limit : 3 %}
+<div class="col-md-12 col-xs-12">
+    <div class="row">
+        <div class="col-md-5 col-xs-5 offset-md-2">
+            <div class="row">
+                <!-- Home Post List -->
+                {% for post in site.posts limit : 3 %}
 
-            <article class="post-preview">
-                <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
-                    <h2 class="post-title">{{ post.title }}</h2>
-                    {% if post.subtitle %}
-                    <p class="post-subtitle">{{ post.subtitle }}</p>
-                    {% else %}
-                    <p class="post-subtitle">{{ post.excerpt | strip_html | truncatewords: 15 }}</p>
-                    {% endif %}
-                </a>
-                <p class="post-meta">Posted on {{ post.date | date: '%B %d, %Y' }}</p>
-            </article>
-            {% endfor %}
-            {% if site.posts.size > 3 %}
-            <!-- Pager -->
-            <div class="clearfix view-all-posts">
-                <a class="btn btn-primary float-right" href="/posts">View All Posts &rarr;</a>
+                <article class="post-preview">
+                    <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
+                        <h2 class="post-title">{{ post.title }}</h2>
+                        {% if post.subtitle %}
+                        <p class="post-subtitle">{{ post.subtitle }}</p>
+                        {% else %}
+                        <p class="post-subtitle">{{ post.excerpt | strip_html | truncatewords: 15 }}</p>
+                        {% endif %}
+                    </a>
+                    <p class="post-meta">Posted on {{ post.date | date: '%B %d, %Y' }}</p>
+                </article>
+                {% endfor %}
+                {% if site.posts.size > 3 %}
+                <!-- Pager -->
+                <div class="clearfix view-all-posts">
+                    <a class="btn btn-primary float-right" href="/posts">View All Posts &rarr;</a>
+                </div>
+                {% endif %}
             </div>
-            {% endif %}
+            <div class="row" style="padding-top: 2rem;">
+                {% include mailchimp-subscribe.html %}
+            </div>
         </div>
-        <div class="row" style="padding-top: 2rem;">
-            {% include mailchimp-subscribe.html %}
+        <div class="col-md-3 col-xs-3">
+            {% include sidebar.html %}
         </div>
-    </div>
-    <div class="col-md-3">
-      {% include sidebar.html %}
     </div>
 </div>
