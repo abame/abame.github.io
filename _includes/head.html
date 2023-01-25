@@ -30,4 +30,8 @@
     <meta property='og:url' content='{{ site.url }}{{ page.url }}'/>
     <meta property="og:description"   content="{{ content | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}" />
     <meta property="og:type" content="article" />
+    <meta property="article:author" content="Albion Bame" />
+    {% if page.date %}
+        <meta property="article:article:published_time" content="{{ page.date }}" />
+    {% endif %}
 </head>
