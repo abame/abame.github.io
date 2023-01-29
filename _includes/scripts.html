@@ -2,11 +2,11 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="{{"/assets/vendor/startbootstrap-clean-blog/js/scripts.js" | relative_url }}"></script>
 
-<script src="{{"/assets/scripts.js" | relative_url }}"></script>
+<script type="text/plain" data-cookie-consent="targeting" src="{{"/assets/scripts.js" | relative_url }}"></script>
 
 {% if page.url contains 'contact' %}
   <!-- Form Validation -->
-  <script src="{{"/assets/vendor/startbootstrap-clean-blog/js/jqBootstrapValidation.js" | relative_url }}"></script>
+  <script type="text/plain" data-cookie-consent="targeting" src="{{"/assets/vendor/startbootstrap-clean-blog/js/jqBootstrapValidation.js" | relative_url }}"></script>
   <!-- Send Form -->
   <script>
     $(function () {
@@ -83,9 +83,20 @@
   </script>
 {% endif %}
 
-<script src="https://kit.fontawesome.com/429c6e8f56.js" crossorigin="anonymous"></script>
-<script>const exports = {}; // quick fix because 'exports' is not defined in rich-text bundle below</script>
-<script src="https://unpkg.com/@contentful/rich-text-html-renderer@12.0.0/dist/rich-text-html-renderer.es5.js" charset="utf-8"></script>
+<script type="text/plain" data-cookie-consent="targeting" src="https://kit.fontawesome.com/429c6e8f56.js" crossorigin="anonymous"></script>
+<script type="text/plain" data-cookie-consent="targeting" >const exports = {}; // quick fix because 'exports' is not defined in rich-text bundle below</script>
+<script type="text/plain" data-cookie-consent="targeting" src="https://unpkg.com/@contentful/rich-text-html-renderer@12.0.0/dist/rich-text-html-renderer.es5.js" charset="utf-8"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
-<script src="/assets/js/preview.js"></script>
-<script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/43d94f274b65774791fb2ad59/4f6c67752b12a13b83671a009.js");</script>
+<script type="text/plain" data-cookie-consent="targeting" src="/assets/js/preview.js"></script>
+<script type="text/plain" data-cookie-consent="targeting" id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/43d94f274b65774791fb2ad59/4f6c67752b12a13b83671a009.js");</script>
+
+<!-- Cookie Consent by FreePrivacyPolicy.com https://www.FreePrivacyPolicy.com -->
+<script type="text/javascript" src="//www.freeprivacypolicy.com/public/cookie-consent/4.1.0/cookie-consent.js" charset="UTF-8"></script>
+<script type="text/javascript" charset="UTF-8">
+document.addEventListener('DOMContentLoaded', function () {
+cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palette":"light","language":"en","page_load_consent_levels":["strictly-necessary"],"notice_banner_reject_button_hide":false,"preferences_center_close_button_hide":false,"page_refresh_confirmation_buttons":false,"website_privacy_policy_url":"https://albionba.me/privacy"});
+});
+</script>
+
+<noscript>Cookie Consent by <a href="https://www.freeprivacypolicy.com/" rel="noopener">Free Privacy Policy Generator</a></noscript>
+<!-- End Cookie Consent by FreePrivacyPolicy.com https://www.FreePrivacyPolicy.com -->
