@@ -66,8 +66,14 @@ defaults:
     values:
       layout: learningPath
       permalink: /learning-paths/junior/solid-principles/:title
-
-exclude: ['generate-files']
+  - scope:
+      path: preview.html
+    values:
+      sitemap: false
+  - scope:
+      path: google9e535003e8473b9b.html
+    values:
+      sitemap: false
 
 # Add your google-analytics ID here to activate google analytics
 google_analytics: G-MG8Q73CDBY # out your google-analytics code
