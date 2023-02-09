@@ -1,3 +1,4 @@
 User-Agent: *
-Disallow: /*preview
 Disallow: /*learning-paths
+Disallow: /google9e535003e8473b9b.html
+Disallow: /preview.html
