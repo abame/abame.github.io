@@ -73,6 +73,11 @@
 .post-preview p {
     margin: 0;
     line-height: normal;
+    padding-top: 1rem;
+}
+
+article > h1, h2:not(.post-title), h3, h4, h5, h6 {
+  padding-top: 1rem;
 }
 
 .meta {
