@@ -14,7 +14,6 @@ config.client.getEntries({order: 'sys.createdAt', content_type: contentType})
             const groupedQuestionsAnswers = entry.fields.questionsAnswers !== undefined ? helpers.groupByProperty(entry.fields.questionsAnswers, "group") : [];
             let image = defaultImage;
             if (entry.fields.headerBackgroundImage !== undefined) {
-                console.log(entry.fields.headerBackgroundImage.fields.file.url);
                 image = `https:${entry.fields.headerBackgroundImage.fields.file.url}`;
             }
             const html = config.templateRenderer.render(`${helpers.toKebabCase(contentType)}.html`, { 
