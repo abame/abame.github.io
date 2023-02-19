@@ -24,8 +24,14 @@
 
     <meta property='og:title' content='{% if page.title %}{{ page.title | escape }} - {{ site.title | escape }}
         {% else %}{{ site.title | escape }}{% endif %}'/>
-    {% if page.background %}
+    {% if page.background and page.background contains "https" %}
         <meta property='og:image' content='{{ page.background }}'/>
+    {% else %}
+        {% if page.metaimage %}
+            <meta property='og:image' content='{{ site.url }}{{ page.metaimage }}'/>
+        {% else %}
+            <meta property='og:image' content='{{ site.url }}{{ page.background }}'/>
+        {% endif %}
     {% endif %}
     <meta property='og:url' content='{{ site.url }}{{ page.url }}'/>
     <meta property="og:description"   content="{{ content | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}" />
