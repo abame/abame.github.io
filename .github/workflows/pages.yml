@@ -1,5 +1,5 @@
 # Sample workflow for building and deploying a Jekyll site to GitHub Pages
-name: Deploy Jekyll with GitHub Pages dependencies preinstalled
+name: Deploy Site with GitHub Pages
 
 on:
   # Runs on pushes targeting the default branch
@@ -40,12 +40,13 @@ jobs:
         with:
           node-version: 18.x
 
-      - name: Generate Blog Pages
+      - name: Generate Pages and Blog Posts
         run: |
           cd generate-files
           yarn install
           yarn generate:blog-post
           yarn generate:medium
+          yarn generate:books
 
       - name: Generate Learning Paths
         run: |
