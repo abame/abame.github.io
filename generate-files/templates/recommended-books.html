@@ -10,7 +10,7 @@ metaimage:  '/img/bg-books.jpg'
     them already.</p>
 <div class="row">
     {% for book in books %}
-    <div class="col-sm-3 mb-3" style="width: calc(100% * (1/4) - 10px - 1px);">
+    <div class="col-sm-3 mb-3 col-xs-12">
         <a href="{{ book.fields.bookLink }}" target="_blank">
             <img src="{{ book.fields.imageLink }}" style="width: 10em;" class="card-img-top"
                 alt="{{ book.fields.title }}">
