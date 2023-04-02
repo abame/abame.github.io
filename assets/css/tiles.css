@@ -1,3 +1,7 @@
+#mainNav .navbar-brand {
+  padding: unset !important;
+}
+
 .view-all-posts .btn-primary {
   background-color: #212529 !important;
   border-color: #212529 !important;
