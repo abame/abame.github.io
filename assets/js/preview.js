@@ -29,7 +29,13 @@ $(async function () {
     const headerBackgroundImageId = article[0].fields.headerBackgroundImage?.sys.id;
     $(".masthead .page-heading > h1").remove();
     //$("div.page-heading > h1").html(article[0].fields.title);
-    $(".page-title div.page-heading").append(`<h1>${article[0].fields.title}</h1><span class="meta">Posted on ${month} ${createdAt.getDate()}, ${createdAt.getFullYear()}</span>`);
+    $(".page-title div.page-heading").append(`
+        <h1>
+            <span>${article[0].fields.title}</span>
+            <span class="meta">Posted on ${month} ${createdAt.getDate()}, ${createdAt.getFullYear()}</span>
+        </h1>
+        <a href="https://bellard.org/jslinux/vm.html?cpu=riscv64&url=fedora33-riscv.cfg&mem=256" target="_blank">Terminal</a>
+    `);
     let html = "";
     if(article[0].fields.description !== undefined) {
         html += await documentToHtmlString(article[0].fields.description);
