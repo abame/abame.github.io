@@ -7,7 +7,7 @@ background: '/img/bg-post.webp'
 {% for post in paginator.posts %}
 
 <article class="post-preview">
-    <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
+    <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}#disqus_thread">
         <h2 class="post-title">{{ post.title }}</h2>
         {% if post.subtitle %}
             <p class="post-subtitle">{{ post.subtitle }}</p>
