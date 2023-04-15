@@ -60,13 +60,13 @@ defaults:
       type: masterCli
     values:
       layout: learningPath
-      permalink: /learning-paths/junior/master-cli/:title
+      permalink: /learning-paths/master-cli/:title
   - scope:
       path: "_solidPrinciples"
       type: solidPrinciples
     values:
       layout: learningPath
-      permalink: /learning-paths/junior/solid-principles/:title
+      permalink: /learning-paths/solid-principles/:title
   - scope:
       path: preview.html
     values:

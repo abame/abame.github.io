@@ -6,5 +6,4 @@ generate-files/node_modules
 generate-files/.env
 !_*/.gitkeep
 _*/*
-learning-paths/
 /recommended-books.html

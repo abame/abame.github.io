@@ -38,7 +38,7 @@ layout: default
       </div>
       
       <a href="https://www.linkedin.com/shareArticle?url={{ site.url }}{{ page.url }}&title={{ page.title }}" target="_blank">
-        <img alt="Share on LinkedIn" src="/img/in-share.png" style="padding-top: 0.5rem;width: 4rem;">
+        <img alt="Share on LinkedIn" src="/img/in-share.webp" style="padding-top: 0.5rem;width: 4rem;">
       </a>
       <div class="fb-share-button" data-href="{{ site.url }}{{ page.url }}" data-layout="button" data-size="small">
         <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ page.url }}" class="fb-xfbml-parse-ignore">
@@ -46,7 +46,7 @@ layout: default
         </a>
       </div>
 
-        {{ content }}
+        {{ content | newline_to_br }}
 
         <hr>
 
