@@ -38,7 +38,7 @@ $(async function () {
     `);
     let html = "";
     if(article[0].fields.description !== undefined) {
-        html += await documentToHtmlString(article[0].fields.description);
+        html += (await documentToHtmlString(article[0].fields.description)).replace(/\n/g,'</br>');
     }
 
     for (const group in groupedQuestionsAnswers) {
