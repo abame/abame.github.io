@@ -24,6 +24,7 @@ env:
   CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
   CONTENTFUL_SECRET: ${{ secrets.CONTENTFUL_SECRET }}
   PREVIEW_CONTENTFUL_SECRET: ${{ secrets.PREVIEW_CONTENTFUL_SECRET }}
+  NAVIGATION_ENTRY_ID: ${{ secrets.NAVIGATION_ENTRY_ID }}
   
 jobs:
   # Build job
@@ -40,18 +41,14 @@ jobs:
         with:
           node-version: 18.x
 
-      - name: Generate Pages and Blog Posts
+      - name: Generate Site
         run: |
           cd generate-files
           yarn install
+          yarn generate:navigation-menu
           yarn generate:blog-post
           yarn generate:medium
           yarn generate:books
-
-      - name: Generate Learning Paths
-        run: |
-          cd generate-files
-          yarn install
           yarn generate:learning-types
           yarn generate:learning-path
 

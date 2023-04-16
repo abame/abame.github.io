@@ -7,3 +7,4 @@ generate-files/.env
 !_*/.gitkeep
 _*/*
 /recommended-books.html
+_includes/navbar.html

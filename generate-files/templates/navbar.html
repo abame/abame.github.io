@@ -1,0 +1,31 @@
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="/">
+        <img src="{{ logo }}" style="width: 15rem;"/>
+      </a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fa fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          {% for item in items %}
+          <li class="nav-item{% if item.items %} dropdown{% endif %}">
+            <a class="nav-link{% if item.items %} dropdown-toggle{% endif %}" href="{{ item.link }}" {% if item.items %}id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"{% endif %}>
+              {{ item.name }}
+            </a>
+            {% if item.items %}
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                {% for subItem in item.items %}
+                  <a class="dropdown-item" href="{{ subItem.fields.link }}">{{ subItem.fields.name }}</a>
+                  <!---<div class="dropdown-divider"></div>-->
+                {% endfor %}
+              </div>
+            {% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </nav>

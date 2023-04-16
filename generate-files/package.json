@@ -9,14 +9,15 @@
     "generate:blog-post": "node generate-pages.js blogPost",
     "generate:blog-post:preview": "node generate-pages.js blogPost preview",
     "generate:medium": "node generate-medium.js",
-    "generate:books": "node generate-books.js"
+    "generate:books": "node generate-books.js",
+    "generate:navigation-menu": "node generate-navigation-menu.js"
   },
   "dependencies": {
-    "@contentful/rich-text-html-renderer": "^16.0.2",
-    "contentful": "^9.2.14",
-    "dotenv": "^16.0.3",
-    "fs-extra": "^11.1.0",
-    "node-fetch": "2",
-    "nunjucks": "^3.2.3"
+    "@contentful/rich-text-html-renderer": "16.0.3",
+    "contentful": "10.1.0",
+    "dotenv": "16.0.3",
+    "fs-extra": "11.1.1",
+    "node-fetch": "2.6.9",
+    "nunjucks": "3.2.4"
   }
 }
