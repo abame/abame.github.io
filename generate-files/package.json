@@ -2,6 +2,7 @@
   "name": "generate-files",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "generate:learning-types": "node generate-learning-types.js",
     "generate:learning-path": "node generate-pages.js learningPath",
@@ -17,7 +18,11 @@
     "contentful": "10.1.0",
     "dotenv": "16.0.3",
     "fs-extra": "11.1.1",
-    "node-fetch": "2.6.9",
+    "node-fetch": "3.3.1",
     "nunjucks": "3.2.4"
+  },
+  "devDependencies": {
+    "@types/node-fetch": "^2.6.3",
+    "@types/nunjucks": "^3.2.2"
   }
 }

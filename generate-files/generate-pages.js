@@ -1,7 +1,9 @@
-const config = require('./config');
-const helpers = require('./helpers');
-const fse = require('fs-extra');
-const richTextRenderer = require('@contentful/rich-text-html-renderer');
+import { client, templateRenderer } from './config.js';
+import { toCamelCase, groupByProperty, toKebabCase } from './helpers.js';
+import fsExtra from 'fs-extra';
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+
+const { outputFileSync } = fsExtra;
 
 const contentType = process.argv[2];
 let directory = contentType === "blogPost" ? "posts" : undefined;
@@ -12,23 +14,23 @@ const capitalize = (s) => {
     return s.charAt(0).toUpperCase() + s.slice(1)
   }
 
-config.client.getEntries({order: 'sys.createdAt', content_type: contentType})
+client.getEntries({order: 'sys.createdAt', content_type: contentType})
     .then((entries) => {
         for (const entry of entries.items) {
-            directory = entry.fields.learningType !== undefined ? helpers.toCamelCase(entry.fields.learningType) : directory
-            const groupedQuestionsAnswers = entry.fields.questionsAnswers !== undefined ? helpers.groupByProperty(entry.fields.questionsAnswers, "group") : [];
+            directory = entry.fields.learningType !== undefined ? toCamelCase(entry.fields.learningType) : directory
+            const groupedQuestionsAnswers = entry.fields.questionsAnswers !== undefined ? groupByProperty(entry.fields.questionsAnswers, "group") : [];
             let image = defaultImage;
             if (entry.fields.headerBackgroundImage !== undefined) {
                 image = `https:/${entry.fields.headerBackgroundImage.fields.file.url}`;
             }
-            const html = config.templateRenderer.render(`${helpers.toKebabCase(contentType)}.html`, { 
+            const html = templateRenderer.render(`${toKebabCase(contentType)}.html`, { 
                 title: entry.fields.title,
                 date: entry.sys.createdAt,
                 backgroundImage: image,
-                description: richTextRenderer.documentToHtmlString(entry.fields.description ?? ""),
+                description: documentToHtmlString(entry.fields.description ?? ""),
                 questionsAnswers: groupedQuestionsAnswers,
                 tags: entry.metadata.tags.map((tag) => capitalize(tag.sys.id.replace(/([a-z0-9])([A-Z])/g, '$1 $2'))).join(', ')
             });
-            fse.outputFileSync(`../_${directory}/${entry.sys.createdAt.split('T')[0]}-${helpers.toKebabCase(entry.fields.title)}.html`, html);
+            outputFileSync(`../_${directory}/${entry.sys.createdAt.split('T')[0]}-${toKebabCase(entry.fields.title)}.html`, html);
         }
     });
