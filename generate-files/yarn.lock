@@ -63,6 +63,11 @@ call-bind@^1.0.0:
     function-bind "^1.1.1"
     get-intrinsic "^1.0.2"
 
+codsen-utils@^1.3.1:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/codsen-utils/-/codsen-utils-1.3.1.tgz#915be64f7eddbef77cab80acc7b417bd887e74be"
+  integrity sha512-8oXWrZq591a8jWky1YoA5E2IZCOqU4fa02+719me3YPXqmMYjXZXVuK+4Xfvdg6bW0Fsms+61hYqsfc5JzUYXQ==
+
 combined-stream@^1.0.8:
   version "1.0.8"
   resolved "https://registry.yarnpkg.com/combined-stream/-/combined-stream-1.0.8.tgz#c3d45a8b34fd730631a110a8a2520682b31d5a7f"
@@ -199,6 +204,11 @@ has@^1.0.3:
   dependencies:
     function-bind "^1.1.1"
 
+html-entities@^2.3.3:
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/html-entities/-/html-entities-2.3.3.tgz#117d7626bece327fc8baace8868fa6f5ef856e46"
+  integrity sha512-DV5Ln36z34NNTDgnz0EWGBLZENelNAtkiFA4kyNOG2tDI6Mz1uSWiq1wAKdyjnJwyDiDO7Fa2SO1CTxPXL8VxA==
+
 json-stringify-safe@^5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz#1296a2d58fd45f19a0f6ce01d65701e2c735b6eb"
@@ -213,6 +223,11 @@ jsonfile@^6.0.1:
   optionalDependencies:
     graceful-fs "^4.1.6"
 
+lodash.clonedeep@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/lodash.clonedeep/-/lodash.clonedeep-4.5.0.tgz#e23f3f9c4f8fbdde872529c1071857a086e5ccef"
+  integrity sha512-H5ZhCF25riFd9uB5UCkVKo61m3S/xZk1x4wA6yp/L3RFP6Z/eHH1ymQcGLo7J3GMPfm0V/7m1tryHuGVxpqEBQ==
+
 lodash.isplainobject@^4.0.6:
   version "4.0.6"
   resolved "https://registry.yarnpkg.com/lodash.isplainobject/-/lodash.isplainobject-4.0.6.tgz#7c526a52d89b45c45cc690b88163be0497f550cb"
@@ -222,6 +237,16 @@ lodash.isstring@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/lodash.isstring/-/lodash.isstring-4.0.1.tgz#d527dfb5456eca7cc9bb95d5daeaf88ba54a5451"
   integrity sha512-0wJxfxH1wgO3GrbuP+dTTk7op+6L41QCXbGINEmD+ny/G/eCqGzxyCsh7159S+mgDDcoarnBw6PC1PS5+wUGgw==
+
+lodash.trim@^4.5.1:
+  version "4.5.1"
+  resolved "https://registry.yarnpkg.com/lodash.trim/-/lodash.trim-4.5.1.tgz#36425e7ee90be4aa5e27bcebb85b7d11ea47aa57"
+  integrity sha512-nJAlRl/K+eiOehWKDzoBVrSMhK0K3A3YQsUNXHQa5yIrKBAhsZgSu3KoAFoFT+mEgiyBHddZ0pRk1ITpIp90Wg==
+
+lodash.without@^4.4.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/lodash.without/-/lodash.without-4.4.0.tgz#3cd4574a00b67bae373a94b748772640507b7aac"
+  integrity sha512-M3MefBwfDhgKgINVuBJCO1YR3+gf6s9HNJsIiZ/Ru77Ws6uTb9eBuvrkpzO+9iLoAaRodGuq7tyrPCx+74QYGQ==
 
 mime-db@1.52.0:
   version "1.52.0"
@@ -280,6 +305,37 @@ qs@^6.9.4:
   dependencies:
     side-channel "^1.0.4"
 
+ranges-apply@^7.0.7:
+  version "7.0.7"
+  resolved "https://registry.yarnpkg.com/ranges-apply/-/ranges-apply-7.0.7.tgz#8a08b0d5aa1b65a612e50da6d239c96e38a92706"
+  integrity sha512-DGm250e391NLNhR/j43a+LhpvhqCqEinAq79/ENztEj9hrIaKrDOt+QM/ZOLIFeTNZc93MmW0w+afzz2fkK3EA==
+  dependencies:
+    ranges-merge "^9.0.7"
+    tiny-invariant "^1.3.1"
+
+ranges-merge@^9.0.7:
+  version "9.0.7"
+  resolved "https://registry.yarnpkg.com/ranges-merge/-/ranges-merge-9.0.7.tgz#a0c0d861d2eaba1d386f865b0cd00da6300419d2"
+  integrity sha512-HmSXC5RXPQvLawXMoMCUI978cmPH1OHlKugvI2mrFwahkeyfTs2Zw7WPCZQSrWSuGv4AhVlvIj1p3smm8W9ffQ==
+  dependencies:
+    ranges-push "^7.0.7"
+    ranges-sort "^6.0.7"
+
+ranges-push@^7.0.7:
+  version "7.0.7"
+  resolved "https://registry.yarnpkg.com/ranges-push/-/ranges-push-7.0.7.tgz#fce58cededb5b6f0f7e0b4d1dbd48b770be5a24d"
+  integrity sha512-Jo4PKgq6UsAzNv4ofxR9fjZsNoT1fuCqcfIE2evemILH62efNr94gwnJ1zhJZP/ZqDe/W8afDWeZxmgHqByNBA==
+  dependencies:
+    codsen-utils "^1.3.1"
+    ranges-sort "^6.0.7"
+    string-collapse-leading-whitespace "^7.0.5"
+    string-trim-spaces-only "^5.0.7"
+
+ranges-sort@^6.0.7:
+  version "6.0.7"
+  resolved "https://registry.yarnpkg.com/ranges-sort/-/ranges-sort-6.0.7.tgz#3008b6776afe4d9ed26ed031c46e7dad2eb63425"
+  integrity sha512-YsOCDEMy0nYnhqC3h2IX9DJdUwgKnnGWbi/sieNDaxQpDKv6gdxaBg76BXhpd9RagMW8zVy9vAqwjhO5+wAl9A==
+
 side-channel@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/side-channel/-/side-channel-1.0.4.tgz#efce5c8fdc104ee751b25c58d4290011fa5ea2cf"
@@ -288,6 +344,42 @@ side-channel@^1.0.4:
     call-bind "^1.0.0"
     get-intrinsic "^1.0.2"
     object-inspect "^1.9.0"
+
+string-collapse-leading-whitespace@^7.0.5:
+  version "7.0.5"
+  resolved "https://registry.yarnpkg.com/string-collapse-leading-whitespace/-/string-collapse-leading-whitespace-7.0.5.tgz#d40a9b62cc77a092aa4978e9577e1af52f518747"
+  integrity sha512-cRzQCQwcp57UTFGy6bWVTfg1mkTH61TpYz9A4RDV4PyPQr3hYkPE0XmMS0zkgzYHwdtSM0eX09H9T8SMWUuFPw==
+
+string-left-right@^6.0.10:
+  version "6.0.10"
+  resolved "https://registry.yarnpkg.com/string-left-right/-/string-left-right-6.0.10.tgz#8d00653782a7ad8900bbc1e76b7d78a3e1d3cd81"
+  integrity sha512-SbBC2f2hhbmRdqR97KV+jzZASF9cEaQMwbUliDaVe4qutZQpRLVahrj+TCa9grNJbMptzgd2Zjo4DCwbPLdmDA==
+  dependencies:
+    codsen-utils "^1.3.1"
+    lodash.clonedeep "^4.5.0"
+
+string-strip-html@^13.2.2:
+  version "13.2.2"
+  resolved "https://registry.yarnpkg.com/string-strip-html/-/string-strip-html-13.2.2.tgz#88d65f5007936a73651858e1d18465de898b7c05"
+  integrity sha512-KgOtdnJHPHu5voZ4kbLOfL3kmafIgqUjDdzCuSJA8NaMD5CIYd03gTnPs2mDw/x5QUO3TuTcrNdVSuT1lF3ZAQ==
+  dependencies:
+    codsen-utils "^1.3.1"
+    html-entities "^2.3.3"
+    lodash.trim "^4.5.1"
+    lodash.without "^4.4.0"
+    ranges-apply "^7.0.7"
+    ranges-push "^7.0.7"
+    string-left-right "^6.0.10"
+
+string-trim-spaces-only@^5.0.7:
+  version "5.0.7"
+  resolved "https://registry.yarnpkg.com/string-trim-spaces-only/-/string-trim-spaces-only-5.0.7.tgz#ff244701a7c989d5a148c2348a6c22cf9f8ad28f"
+  integrity sha512-L/rhIYf1Lf+gvq8uSNDps471Ry3xhd0KjlPG0HwOFDSACLlX93fkoaJkuOM33uYEh+HpO8LcmTJDv4r6a9XIOQ==
+
+tiny-invariant@^1.3.1:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/tiny-invariant/-/tiny-invariant-1.3.1.tgz#8560808c916ef02ecfd55e66090df23a4b7aa642"
+  integrity sha512-AD5ih2NlSssTCwsMznbvwMZpJ1cbhkGd2uueNxzv2jDlEeZdU04JQfRnggJQ8DrcVBGjAsCKwFBbDlVNtEMlzw==
 
 type-fest@^3.1.0:
   version "3.8.0"

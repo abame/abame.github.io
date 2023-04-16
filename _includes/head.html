@@ -34,7 +34,11 @@
         {% endif %}
     {% endif %}
     <meta property='og:url' content='{{ site.url }}{{ page.url }}'/>
-    <meta property="og:description"   content="{{ content | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}" />
+    {% if page.description %}
+        <meta property="og:description" content="{{ page.description | strip_html | normalize_whitespace | truncate: 160 | escape }}" />
+    {% else %}
+        <meta property="og:description" content="{{ content | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}" />
+    {% endif %}
     <meta property="og:type" content="article" />
     <meta property="article:author" content="Albion Bame" />
     {% if page.keywords %}
