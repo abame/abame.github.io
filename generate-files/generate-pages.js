@@ -1,6 +1,7 @@
 import { client, templateRenderer } from './config.js';
 import { toCamelCase, groupByProperty, toKebabCase } from './helpers.js';
 import fsExtra from 'fs-extra';
+import moment from "moment";
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 
 const { outputFileSync } = fsExtra;
@@ -25,7 +26,7 @@ client.getEntries({order: 'sys.createdAt', content_type: contentType})
             }
             const html = templateRenderer.render(`${toKebabCase(contentType)}.html`, { 
                 title: entry.fields.title,
-                date: entry.sys.createdAt,
+                date: moment(entry.sys.createdAt).format('YYYY-MM-DDTHH:mm:ssZZ'),
                 backgroundImage: image,
                 description: documentToHtmlString(entry.fields.description ?? ""),
                 questionsAnswers: groupedQuestionsAnswers,
