@@ -53,7 +53,7 @@ jobs:
           yarn generate:learning-path
 
       - name: Build with Jekyll
-        uses: actions/jekyll-build-pages@v1.0.7
+        uses: actions/jekyll-build-pages@v1.0.8
         with:
           source: ./
           destination: ./_site
