@@ -10,11 +10,21 @@ Pages site will use the layout and styles from the Jekyll theme you have selecte
 
 ## Node.js
 
-Node.js is used to generate the pages needed for Jekyll to generate the site. 
+Node.js is used to generate the pages needed for Jekyll to generate the site.
 
 The content is fetched from [Contentful - Headless CMS](https://www.contentful.com/) by using the scripts found under `generate-files`.
 
 [Nunjucks](https://mozilla.github.io/nunjucks/) is used to generate the files that are required from Jekyll based on the given templates.
+
+## Run Locally
+
+You need to have ruby installed on your machine and after that, run the following commands:
+
+```shell
+bundle config set --local path 'vendor/bundle'
+bundle install
+bundle exec jekyll serve
+```
 
 ## License
 

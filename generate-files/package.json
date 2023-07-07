@@ -11,20 +11,21 @@
     "generate:blog-post:preview": "node generate-pages.js blogPost preview",
     "generate:medium": "node generate-medium.js",
     "generate:books": "node generate-books.js",
-    "generate:navigation-menu": "node generate-navigation-menu.js"
+    "generate:navigation-menu": "node generate-navigation-menu.js",
+    "generate:professional-skills": "node professional-skills.js"
   },
   "dependencies": {
-    "@contentful/rich-text-html-renderer": "16.0.3",
-    "contentful": "10.1.0",
-    "dotenv": "16.0.3",
+    "@contentful/rich-text-html-renderer": "16.1.0",
+    "contentful": "10.3.1",
+    "dotenv": "16.3.1",
     "fs-extra": "11.1.1",
-    "moment": "^2.29.4",
+    "moment": "2.29.4",
     "node-fetch": "3.3.1",
     "nunjucks": "3.2.4",
-    "string-strip-html": "^13.2.2"
+    "string-strip-html": "13.4.1"
   },
   "devDependencies": {
-    "@types/node-fetch": "^2.6.3",
-    "@types/nunjucks": "^3.2.2"
+    "@types/node-fetch": "2.6.4",
+    "@types/nunjucks": "3.2.3"
   }
 }
