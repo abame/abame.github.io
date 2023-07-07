@@ -8,3 +8,5 @@ generate-files/.env
 _*/*
 /recommended-books.html
 _includes/navbar.html
+vendor
+/professional-skills.html

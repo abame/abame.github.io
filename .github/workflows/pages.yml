@@ -51,6 +51,7 @@ jobs:
           yarn generate:books
           yarn generate:learning-types
           yarn generate:learning-path
+          yarn generate:professional-skills
 
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1.0.8
