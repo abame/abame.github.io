@@ -15,5 +15,5 @@ client.getEntries({ order: 'sys.createdAt', content_type: 'journal' })
             }
          });
         const html = templateRenderer.render(`journals.html`, { articles: items });
-        outputFileSync(`../journals.html`, html);
+        outputFileSync(`../journal.html`, html);
     });
