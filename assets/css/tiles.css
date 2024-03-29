@@ -16,7 +16,7 @@
 }
 
 .image-left {
-  background: url('../../img/project-left.webp');
+  background: url('../../img/project-left.png');
   background-size: cover;
 }
 
@@ -37,7 +37,7 @@
 }
 
 .image-right {
-  background: url('../../img/project-right.webp');
+  background: url('../../img/project-right.png');
   background-size: cover;
 }
 

@@ -9,7 +9,7 @@ const { outputFileSync } = fsExtra;
 
 const contentType = process.argv[2];
 let directory = contentType === "blogPost" ? "posts" : undefined;
-const defaultImage = '/img/bg-post.webp';
+const defaultImage = '/img/bg-post.png';
 
 const capitalize = (s) => {
     if (typeof s !== 'string') return ''
