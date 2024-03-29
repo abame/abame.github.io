@@ -1,0 +1,49 @@
+---
+layout: page
+title: Journals
+background: '/img/journals.jpeg'
+type: medium
+---
+
+<style>
+    #jsonContent img {
+      height: 150px;
+      width: auto;
+      float: left;
+      margin-right: 1rem;
+      border: 1px solid;
+    }
+    ul#paginaton > li.page-item {
+        list-style: none;
+        margin: 0.5rem;
+        float: left;
+    }
+    .medium-link {
+        margin-bottom: 1rem;
+    }
+    .medium-link a {
+        font-size: 1rem;
+    }
+    .medium-link a.rss {
+        color: #9f9300;
+    }
+    .medium-link a.subscribe {
+        color: #190697;
+    }
+    #jsonContent .medium-link img {
+        width: 40px;
+        height: auto;
+    }
+</style>
+  
+<div class="row" id="jsonContent">
+    {% for article in articles %}
+        <div class="card col-sm-12 mb-3 mx-auto mr-5 " style="width: 20rem;">
+            <div class="card-body">
+                <h5 class="card-title"><a href="{{ article.link }}" target="_blank">{{ article.title }}</a></h5>
+                <img src="{{ article.image }}" style="width: 10em;" class="card-img-top" alt="Cover image">
+                <p class="card-text">{{ article.description }}</p>
+            </div>
+        </div>
+    {% endfor %}
+</div>

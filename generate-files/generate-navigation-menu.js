@@ -5,9 +5,9 @@ const { outputFileSync } = fsExtra;
 
 client.getEntry(process.env.NAVIGATION_ENTRY_ID, { include: 2 })
     .then((entry) => {
-        const html = templateRenderer.render(`navbar.html`, { 
+                const html = templateRenderer.render(`navbar.html`, { 
             logo: `http:/${entry.fields.logo.fields.file.url}`,
-            items: entry.fields.items.map((item) => item.fields),
+            items: entry.fields.items.filter((item) => item.fields !== undefined).map((item) => item.fields),
         });
         outputFileSync(`../_includes/navbar.html`, html);
     });
