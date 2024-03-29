@@ -26,7 +26,12 @@ fetch(`https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@${m
                     Math.min(description.length, description.lastIndexOf(" "))
                 )
     
-                articles.push({title: item.title, link: item.link, description, image: item.thumbnail})
+                articles.push({
+                    title: item.title,
+                    link: item.link,
+                    description,
+                    image: item.description.match(/\<img.+src\=(?:\"|\')(.+?)(?:\"|\')(?:.+?)\>/)[1]
+                })
             }
     
             const html = render(`medium.html`, {articles});
