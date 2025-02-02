@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>German Flashcards</title>
+</head>
+<body style="font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f4; margin: 0; padding: 20px;">
+
+    <h1>Learn German Articles</h1>
+
+    <label for="difficulty">Difficulty:</label>
+    <select id="difficulty" onchange="changeDifficulty()" style="padding: 5px; font-size: 1em; cursor: pointer;">
+        <option value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Hard</option>
+    </select>
+
+    <div id="flashcard" style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
+        width: 250px; margin: 20px auto; font-size: 1.8em; font-weight: bold; transition: background 0.3s;">
+        <p id="word">Loading...</p>
+        <p id="translation" style="font-size: 0.8em; color: gray;"></p>
+    </div>
+
+    <button onclick="playPronunciation()" style="background: #FF9800; color: white; padding: 10px; border-radius: 50%;
+        font-size: 1.4em; border: none; cursor: pointer;">🔊</button>
+
+    <div style="margin-top: 15px;">
+        <button onclick="checkAnswer('der')" style="background: #008CBA; color: white; padding: 10px 20px; 
+            border: none; border-radius: 8px; margin: 5px; font-size: 1.2em; cursor: pointer;">Der</button>
+        <button onclick="checkAnswer('die')" style="background: #E91E63; color: white; padding: 10px 20px; 
+            border: none; border-radius: 8px; margin: 5px; font-size: 1.2em; cursor: pointer;">Die</button>
+        <button onclick="checkAnswer('das')" style="background: #4CAF50; color: white; padding: 10px 20px; 
+            border: none; border-radius: 8px; margin: 5px; font-size: 1.2em; cursor: pointer;">Das</button>
+    </div>
+
+    <p style="font-size: 1.2em; margin-top: 15px;">Score: <span id="score">0</span> | Best: <span id="best-score">0</span></p>
+    <button onclick="resetGame()" style="background: #f44336; color: white; padding: 8px 15px; border: none; 
+        border-radius: 6px; font-size: 1em; margin-top: 10px; cursor: pointer;">Reset</button>
+
+    <audio id="correctSound" src="/assets/audio/correct.wav"></audio>
+    <audio id="wrongSound" src="/assets/audio/wrong.mp3"></audio>
+
+    <script>
+        let words = { easy: [], medium: [], hard: [] };
+        let currentWords = [], currentCard, score = 0, bestScore = localStorage.getItem("bestScore") || 0;
+        const correctSound = document.getElementById("correctSound");
+        const wrongSound = document.getElementById("wrongSound");
+
+        async function loadWords() {
+            const response = await fetch("https://gist.githubusercontent.com/abame/466374e7bff5679f2e20edee83f8806c/raw/1abceaded3882e311db282904fa7b3c8ddf1f2bc/words.json");
+            words = await response.json();
+            changeDifficulty();
+        }
+
+        function saveScore() {
+            if (score > bestScore) localStorage.setItem("bestScore", bestScore = score);
+            document.getElementById("score").textContent = score;
+            document.getElementById("best-score").textContent = bestScore;
+        }
+
+        function resetGame() {
+            score = 0;
+            localStorage.setItem("bestScore", "0");
+            saveScore();
+            nextWord();
+        }
+
+        function nextWord() {
+            if (!currentWords.length) return;
+            currentCard = currentWords[Math.floor(Math.random() * currentWords.length)];
+            document.getElementById("word").textContent = currentCard.word;
+            document.getElementById("translation").textContent = `(${currentCard.translation})`;
+            document.getElementById("flashcard").style.background = "white";
+        }
+
+        async function playPronunciation() {
+            const audio = new Audio(`https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=de&q=${currentCard.word}`);
+            (await audio).play();
+        }
+
+        function checkAnswer(answer) {
+            let flashcard = document.getElementById("flashcard");
+
+            if (answer === currentCard.article) {
+                correctSound.play();
+                flashcard.style.background = "#4CAF50"; // Green for correct
+                score++;
+            } else {
+                wrongSound.play();
+                flashcard.style.background = "#F44336"; // Red for incorrect
+                score = Math.max(0, score - 1);
+            }
+
+            saveScore();
+            setTimeout(nextWord, 1000);
+        }
+
+        function changeDifficulty() {
+            currentWords = words[document.getElementById("difficulty").value];
+            nextWord();
+        }
+
+        document.addEventListener("DOMContentLoaded", () => { loadWords(); saveScore(); });
+    </script>
+</body>
+</html>
