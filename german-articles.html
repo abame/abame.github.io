@@ -4,6 +4,189 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>German Flashcards</title>
+
+    <style>
+        /* General styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px 0;
+            margin: 0;
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-top: 20px;
+        }
+
+        h3 {
+            color: #34495e;
+            font-size: 1.5em;
+            margin-top: 15px;
+        }
+
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+
+        /* Table styling */
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ddd;
+        }
+
+        th,
+        td {
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        td {
+            background-color: #f9f9f9;
+        }
+
+        tr:nth-child(even) td {
+            background-color: #f1f1f1;
+        }
+
+        tr:hover td {
+            background-color: #f1f9f1;
+        }
+
+        /* Enhanced styling for ul and li */
+        ul {
+            margin: 20px auto;
+            padding-left: 20px;
+            font-size: 1.1em;
+            max-width: 90%;
+            list-style: none;
+        }
+
+        ul li {
+            position: relative;
+            margin: 12px 0;
+            padding-left: 30px;
+            font-size: 1.1em;
+            line-height: 1.6;
+            text-align: left;
+            transition: background-color 0.3s ease, padding-left 0.3s ease;
+        }
+
+        ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            font-size: 1.5em;
+            color: #4CAF50;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        ul li:hover {
+            background-color: #f2f2f2;
+            padding-left: 35px;
+            /* Indentation effect on hover */
+        }
+
+        ul li a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .tab {
+            padding: 12px 20px;
+            margin: 0 5px;
+            cursor: pointer;
+            background-color: #ddd;
+            border-radius: 5px 5px 0 0;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .tab:hover {
+            background-color: #bbb;
+        }
+
+        .tab.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 20px;
+            border: 2px solid #4CAF50;
+            background: white;
+            border-radius: 0 0 5px 5px;
+            width: 95%;
+            margin: auto;
+            text-align: left;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            table {
+                width: 95%;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            h3 {
+                font-size: 1.3em;
+            }
+
+            p,
+            ul {
+                font-size: 1em;
+            }
+
+            ul li {
+                font-size: 1em;
+            }
+        }
+
+        /* Style for bolded text */
+        .bold {
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body style="font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f4; margin: 0; padding: 20px;">
 
@@ -38,8 +221,149 @@
     <button onclick="resetGame()" style="background: #f44336; color: white; padding: 8px 15px; border: none; 
         border-radius: 6px; font-size: 1em; margin-top: 10px; cursor: pointer;">Reset</button>
 
-    <audio id="correctSound" src="correct.wav"></audio>
-    <audio id="wrongSound" src="wrong.mp3"></audio>
+    <audio id="correctSound" src="/assets/audio/correct.wav"></audio>
+    <audio id="wrongSound" src="/assets/audio/wrong.mp3"></audio>
+
+
+    <!-- Header -->
+    <h1 style="margin-top: 2rem;">German Grammar: Nominative, Accusative, Dative Cases & Modal Verbs</h1>
+
+    <!-- Tabs -->
+    <div class="tabs">
+        <div class="tab active" onclick="openTab('cases')">Cases</div>
+        <div class="tab" onclick="openTab('modal-verbs')">Modal Verbs</div>
+    </div>
+
+    <!-- Cases Tab Content -->
+    <div id="cases" class="tab-content active">
+
+        <!-- Cases Table -->
+        <h2>Cases in German</h2>
+        <p>German has three grammatical cases: nominative, accusative, and dative. These cases affect the form of
+            articles
+            and pronouns.</p>
+
+        <table>
+            <tr>
+                <th>Case</th>
+                <th>Masculine</th>
+                <th>Feminine</th>
+                <th>Neuter</th>
+                <th>Plural</th>
+            </tr>
+            <tr>
+                <td>Nominative</td>
+                <td>der</td>
+                <td>die</td>
+                <td>das</td>
+                <td>die</td>
+            </tr>
+            <tr>
+                <td>Accusative</td>
+                <td>den</td>
+                <td>die</td>
+                <td>das</td>
+                <td>die</td>
+            </tr>
+            <tr>
+                <td>Dative</td>
+                <td>dem</td>
+                <td>der</td>
+                <td>dem</td>
+                <td>den</td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <th>Case</th>
+                <th>Masculine</th>
+                <th>Feminine</th>
+                <th>Neuter</th>
+                <th>Plural</th>
+            </tr>
+            <tr>
+                <td>Nominative</td>
+                <td><span class="bold">Der Mann</span> ist nett. (The man is nice.)</td>
+                <td><span class="bold">Die Frau</span> liest ein Buch. (The woman is reading a book.)</td>
+                <td><span class="bold">Das Kind</span> spielt. (The child is playing.)</td>
+                <td><span class="bold">Die Kinder</span> spielen im Garten. (The children are playing in the garden.)
+                </td>
+            </tr>
+            <tr>
+                <td>Accusative</td>
+                <td>Ich sehe <span class="bold">den Mann</span>. (I see the man.)</td>
+                <td>Er hat <span class="bold">die Tasche</span>. (He has the bag.)</td>
+                <td>Wir kaufen <span class="bold">das Auto</span>. (We are buying the car.)</td>
+                <td>Ich sehe <span class="bold">die Kinder</span> im Garten. (I see the children in the garden.)</td>
+            </tr>
+            <tr>
+                <td>Dative</td>
+                <td>Ich gebe <span class="bold">dem Mann</span> das Buch. (I give the book to the man.)</td>
+                <td>Er hilft <span class="bold">der Frau</span>. (He helps the woman.)</td>
+                <td>Wir schicken <span class="bold">dem Kind</span> eine Nachricht. (We send the child a message.)</td>
+                <td>Ich gebe <span class="bold">den Kinder</span> eind Geschenk. (I give the book to the man.)</td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="modal-verbs" class="tab-content">
+        <!-- Modal Verbs Table -->
+        <h2>Modal Verbs in German</h2>
+        <p>Modal verbs express necessity, possibility, permission, or desire.</p>
+        <p>They are often followed by an infinitive verb at the end of the sentence.</p>
+        <p> In negative sentences with modal verbs, "nicht" is placed after the modal verb.</p>
+
+        <table>
+            <tr>
+                <th>Modal Verb</th>
+                <th>Meaning</th>
+                <th>Example</th>
+            </tr>
+            <tr>
+                <td>können</td>
+                <td>can, to be able to</td>
+                <td>
+                    <p>Ich <span class="bold">kann</span> gut schwimmen. (I can swim well.)</p>
+                    <p>Ich <span class="bold">kann</span> <span class="bold">nicht</span> schwimmen. (I can't swim.)</p>
+                </td>
+            </tr>
+            <tr>
+                <td>dürfen</td>
+                <td>may, to be allowed to</td>
+                <td>
+                    <p>Du <span class="bold">darfst</span> hier nicht parken. (You may not park here.)</p>
+                    <p>Wir <span class="bold">dürfen</span> <span class="bold">nicht</span> sprechen. (We are not
+                        allowed to speak.)</p>
+                </td>
+            </tr>
+            <tr>
+                <td>müssen</td>
+                <td>must, to have to</td>
+                <td>
+                    <p>Wir <span class="bold">müssen</span> morgen arbeiten. (We must work tomorrow.)</p>
+                    <p>Du <span class="bold">musst</span> <span class="bold">nicht</span> arbeiten. (You don't have to
+                        work.)</p>
+                </td>
+            </tr>
+            <tr>
+                <td>sollen</td>
+                <td>should, ought to</td>
+                <td>Du <span class="bold">sollst</span> mehr Wasser trinken. (You should drink more water.)</td>
+            </tr>
+            <tr>
+                <td>wollen</td>
+                <td>want to</td>
+                <td>Ich <span class="bold">will</span> ins Kino gehen. (I want to go to the cinema.)</td>
+            </tr>
+            <tr>
+                <td>möchten</td>
+                <td>would like to</td>
+                <td>Wir <span class="bold">möchten</span> ein Zimmer reservieren. (We would like to reserve a room.)
+                </td>
+            </tr>
+        </table>
+    </div>
 
     <script>
         let words = { easy: [], medium: [], hard: [] };
@@ -83,9 +407,6 @@
         function checkAnswer(answer) {
             let flashcard = document.getElementById("flashcard");
 
-            console.log(answer)
-            console.log(currentCard)
-
             if (answer === currentCard.article.toLowerCase()) {
                 correctSound.play();
                 flashcard.style.background = "#4CAF50"; // Green for correct
@@ -103,6 +424,20 @@
         function changeDifficulty() {
             currentWords = words['easy'];
             nextWord();
+        }
+
+        function openTab(tabName) {
+            // Hide all tab contents
+            let contents = document.querySelectorAll(".tab-content");
+            contents.forEach(content => content.classList.remove("active"));
+
+            // Deactivate all tabs
+            let tabs = document.querySelectorAll(".tab");
+            tabs.forEach(tab => tab.classList.remove("active"));
+
+            // Show the selected tab and highlight it
+            document.getElementById(tabName).classList.add("active");
+            event.target.classList.add("active");
         }
 
         document.addEventListener("DOMContentLoaded", () => { loadWords(); saveScore(); });
