@@ -9,12 +9,12 @@
 
     <h1>Learn German Articles</h1>
 
-    <label for="difficulty">Difficulty:</label>
+    <!-- <label for="difficulty">Difficulty:</label>
     <select id="difficulty" onchange="changeDifficulty()" style="padding: 5px; font-size: 1em; cursor: pointer;">
         <option value="easy">Easy</option>
         <option value="medium">Medium</option>
         <option value="hard">Hard</option>
-    </select>
+    </select> -->
 
     <div id="flashcard" style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
         width: 250px; margin: 20px auto; font-size: 1.8em; font-weight: bold; transition: background 0.3s;">
@@ -22,8 +22,8 @@
         <p id="translation" style="font-size: 0.8em; color: gray;"></p>
     </div>
 
-    <button onclick="playPronunciation()" style="background: #FF9800; color: white; padding: 10px; border-radius: 50%;
-        font-size: 1.4em; border: none; cursor: pointer;">🔊</button>
+    <!-- <button onclick="playPronunciation()" style="background: #FF9800; color: white; padding: 10px; border-radius: 50%;
+        font-size: 1.4em; border: none; cursor: pointer;">🔊</button> -->
 
     <div style="margin-top: 15px;">
         <button onclick="checkAnswer('der')" style="background: #008CBA; color: white; padding: 10px 20px; 
@@ -38,8 +38,8 @@
     <button onclick="resetGame()" style="background: #f44336; color: white; padding: 8px 15px; border: none; 
         border-radius: 6px; font-size: 1em; margin-top: 10px; cursor: pointer;">Reset</button>
 
-    <audio id="correctSound" src="/assets/audio/correct.wav"></audio>
-    <audio id="wrongSound" src="/assets/audio/wrong.mp3"></audio>
+    <audio id="correctSound" src="correct.wav"></audio>
+    <audio id="wrongSound" src="wrong.mp3"></audio>
 
     <script>
         let words = { easy: [], medium: [], hard: [] };
@@ -48,7 +48,7 @@
         const wrongSound = document.getElementById("wrongSound");
 
         async function loadWords() {
-            const response = await fetch("https://gist.githubusercontent.com/abame/466374e7bff5679f2e20edee83f8806c/raw/1abceaded3882e311db282904fa7b3c8ddf1f2bc/words.json");
+            const response = await fetch("https://gist.githubusercontent.com/abame/466374e7bff5679f2e20edee83f8806c/raw/119a1774d428f56d58e4c701924c86eab162f638/words.json");
             words = await response.json();
             changeDifficulty();
         }
@@ -72,17 +72,21 @@
             document.getElementById("word").textContent = currentCard.word;
             document.getElementById("translation").textContent = `(${currentCard.translation})`;
             document.getElementById("flashcard").style.background = "white";
+            //document.getElementById("pronunciation").src = currentCard.audio;
         }
-
-        async function playPronunciation() {
-            const audio = new Audio(`https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=de&q=${currentCard.word}`);
-            (await audio).play();
+        
+        function playPronunciation() {
+            const audio = new Audio(currentCard.audio);
+            audio.play();
         }
 
         function checkAnswer(answer) {
             let flashcard = document.getElementById("flashcard");
 
-            if (answer === currentCard.article) {
+            console.log(answer)
+            console.log(currentCard)
+
+            if (answer === currentCard.article.toLowerCase()) {
                 correctSound.play();
                 flashcard.style.background = "#4CAF50"; // Green for correct
                 score++;
@@ -97,7 +101,7 @@
         }
 
         function changeDifficulty() {
-            currentWords = words[document.getElementById("difficulty").value];
+            currentWords = words['easy'];
             nextWord();
         }
 
