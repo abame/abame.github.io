@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -186,8 +187,20 @@
         .bold {
             font-weight: bold;
         }
+
+        .rule {
+            width: 80%;
+            margin: auto;
+            background: #fff;
+            padding: 15px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
     </style>
 </head>
+
 <body style="font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f4; margin: 0; padding: 20px;">
 
     <h1>Learn German Articles</h1>
@@ -217,7 +230,8 @@
             border: none; border-radius: 8px; margin: 5px; font-size: 1.2em; cursor: pointer;">Das</button>
     </div>
 
-    <p style="font-size: 1.2em; margin-top: 15px;">Score: <span id="score">0</span> | Best: <span id="best-score">0</span></p>
+    <p style="font-size: 1.2em; margin-top: 15px;">Score: <span id="score">0</span> | Best: <span
+            id="best-score">0</span></p>
     <button onclick="resetGame()" style="background: #f44336; color: white; padding: 8px 15px; border: none; 
         border-radius: 6px; font-size: 1em; margin-top: 10px; cursor: pointer;">Reset</button>
 
@@ -232,6 +246,7 @@
     <div class="tabs">
         <div class="tab active" onclick="openTab('cases')">Cases</div>
         <div class="tab" onclick="openTab('modal-verbs')">Modal Verbs</div>
+        <div class="tab" onclick="openTab('verb-conjugation')">Verb Conjugation</div>
     </div>
 
     <!-- Cases Tab Content -->
@@ -310,10 +325,12 @@
     <div id="modal-verbs" class="tab-content">
         <!-- Modal Verbs Table -->
         <h2>Modal Verbs in German</h2>
-        <p>Modal verbs express necessity, possibility, permission, or desire.</p>
-        <p>They are often followed by an infinitive verb at the end of the sentence.</p>
-        <p> In negative sentences with modal verbs, "nicht" is placed after the modal verb.</p>
-
+        <div class="rule">
+            <p>Modal verbs express necessity, possibility, permission, or desire.</p>
+            <p>They are often followed by an infinitive verb at the end of the sentence.</p>
+            <p> In negative sentences with modal verbs, "nicht" is placed after the modal verb.</p>
+            <p>These verbs are often irregular, and their conjugation changes depending on the subject.</p>
+        </div>
         <table>
             <tr>
                 <th>Modal Verb</th>
@@ -365,6 +382,290 @@
         </table>
     </div>
 
+    <div id="verb-conjugation" class="tab-content">
+        <h2>German Verb Conjugation Table</h2>
+        <div class="rule">
+            <h2>📌 Present Tense (Präsens) Rule</h2>
+            <p>✅ **Regular verbs:** Add endings <b>-e, -st, -t, -en, -t, -en</b> to the **verb stem**.</p>
+            <p>✅ **Irregular verbs:** May change vowels in **du** and **er/sie/es** forms.</p>
+        </div>
+
+        <table>
+            <tr>
+                <th>Person</th>
+                <th>lernen</th>
+                <th>gehen</th>
+                <th>sehen</th>
+                <th>machen</th>
+                <th>arbeiten</th>
+                <th>essen</th>
+                <th>schlafen</th>
+                <th>kommen</th>
+            </tr>
+            <tr>
+                <td>ich</td>
+                <td>lerne</td>
+                <td>gehe</td>
+                <td>sehe</td>
+                <td>mache</td>
+                <td>arbeite</td>
+                <td>esse</td>
+                <td>schlafe</td>
+                <td>komme</td>
+            </tr>
+            <tr>
+                <td>du</td>
+                <td>lernst</td>
+                <td>gehst</td>
+                <td>siehst</td>
+                <td>machst</td>
+                <td>arbeitest</td>
+                <td>isst</td>
+                <td>schläfst</td>
+                <td>kommst</td>
+            </tr>
+            <tr>
+                <td>er/sie/es</td>
+                <td>lernt</td>
+                <td>geht</td>
+                <td>sieht</td>
+                <td>macht</td>
+                <td>arbeitet</td>
+                <td>isst</td>
+                <td>schläft</td>
+                <td>kommt</td>
+            </tr>
+            <tr>
+                <td>wir</td>
+                <td>lernen</td>
+                <td>gehen</td>
+                <td>sehen</td>
+                <td>machen</td>
+                <td>arbeiten</td>
+                <td>essen</td>
+                <td>schlafen</td>
+                <td>kommen</td>
+            </tr>
+            <tr>
+                <td>ihr</td>
+                <td>lernt</td>
+                <td>geht</td>
+                <td>seht</td>
+                <td>macht</td>
+                <td>arbeitet</td>
+                <td>esst</td>
+                <td>schlaft</td>
+                <td>kommt</td>
+            </tr>
+            <tr>
+                <td>sie/Sie</td>
+                <td>lernen</td>
+                <td>gehen</td>
+                <td>sehen</td>
+                <td>machen</td>
+                <td>arbeiten</td>
+                <td>essen</td>
+                <td>schlafen</td>
+                <td>kommen</td>
+            </tr>
+        </table>
+
+        <div class="rule">
+            <h2>📌 Perfekt Tense (Present Perfect)</h2>
+            <p>In the Perfekt tense, regular verbs use the auxiliary verb **"haben"** and the past participle formed by adding **"-t"** to the verb stem (e.g., **"gelacht"** for **lachen**).</p>
+        </div>
+    
+        <table>
+            <tr>
+                <th>Pronoun</th>
+                <th>spielen (to play)</th>
+                <th>arbeiten (to work)</th>
+                <th>kaufen (to buy)</th>
+                <th>lernen (to learn)</th>
+                <th>reisen (to travel)</th>
+                <th>tanzen (to dance)</th>
+                <th>machen (to do/make)</th>
+            </tr>
+            <tr><td>ich</td> <td>habe gespielt</td> <td>habe gearbeitet</td> <td>habe gekauft</td> <td>habe gelernt</td> <td>bin gereist</td> <td>habe getanzt</td> <td>habe gemacht</td></tr>
+            <tr><td>du</td> <td>hast gespielt</td> <td>hast gearbeitet</td> <td>hast gekauft</td> <td>hast gelernt</td> <td>bist gereist</td> <td>hast getanzt</td> <td>hast gemacht</td></tr>
+            <tr><td>er/sie/es</td> <td>hat gespielt</td> <td>hat gearbeitet</td> <td>hat gekauft</td> <td>hat gelernt</td> <td>ist gereist</td> <td>hat getanzt</td> <td>hat gemacht</td></tr>
+            <tr><td>wir</td> <td>haben gespielt</td> <td>haben gearbeitet</td> <td>haben gekauft</td> <td>haben gelernt</td> <td>sind gereist</td> <td>haben getanzt</td> <td>haben gemacht</td></tr>
+            <tr><td>ihr</td> <td>habt gespielt</td> <td>habt gearbeitet</td> <td>habt gekauft</td> <td>habt gelernt</td> <td>seid gereist</td> <td>habt getanzt</td> <td>habt gemacht</td></tr>
+            <tr><td>sie/Sie</td> <td>haben gespielt</td> <td>haben gearbeitet</td> <td>haben gekauft</td> <td>haben gelernt</td> <td>sind gereist</td> <td>haben getanzt</td> <td>haben gemacht</td></tr>
+        </table>
+
+        <div class="rule">
+            <h2>📌 Past Tense (Präteritum) Rule</h2>
+            <p>✅ **Regular verbs:** Add endings <b>-te, -test, -te, -ten, -tet, -ten</b> to the **stem**.</p>
+            <p>✅ **Irregular verbs:** Stem changes + different endings.</p>
+        </div>
+
+        <table>
+            <tr>
+                <th>Person</th>
+                <th>lernen</th>
+                <th>gehen</th>
+                <th>sehen</th>
+                <th>machen</th>
+                <th>arbeiten</th>
+                <th>essen</th>
+                <th>schlafen</th>
+                <th>kommen</th>
+            </tr>
+            <tr>
+                <td>ich</td>
+                <td>lernte</td>
+                <td>ging</td>
+                <td>sah</td>
+                <td>machte</td>
+                <td>arbeitete</td>
+                <td>aß</td>
+                <td>schlief</td>
+                <td>kam</td>
+            </tr>
+            <tr>
+                <td>du</td>
+                <td>lerntest</td>
+                <td>gingst</td>
+                <td>sahst</td>
+                <td>machtest</td>
+                <td>arbeitetest</td>
+                <td>aßest</td>
+                <td>schliefst</td>
+                <td>kamst</td>
+            </tr>
+            <tr>
+                <td>er/sie/es</td>
+                <td>lernte</td>
+                <td>ging</td>
+                <td>sah</td>
+                <td>machte</td>
+                <td>arbeitete</td>
+                <td>aß</td>
+                <td>schlief</td>
+                <td>kam</td>
+            </tr>
+            <tr>
+                <td>wir</td>
+                <td>lernten</td>
+                <td>gingen</td>
+                <td>sahen</td>
+                <td>machten</td>
+                <td>arbeiteten</td>
+                <td>aßen</td>
+                <td>schliefen</td>
+                <td>kamen</td>
+            </tr>
+            <tr>
+                <td>ihr</td>
+                <td>lerntet</td>
+                <td>gingt</td>
+                <td>saht</td>
+                <td>machtet</td>
+                <td>arbeitetet</td>
+                <td>aßt</td>
+                <td>schlieft</td>
+                <td>kamt</td>
+            </tr>
+            <tr>
+                <td>sie/Sie</td>
+                <td>lernten</td>
+                <td>gingen</td>
+                <td>sahen</td>
+                <td>machten</td>
+                <td>arbeiteten</td>
+                <td>aßen</td>
+                <td>schliefen</td>
+                <td>kamen</td>
+            </tr>
+        </table>
+
+        <div class="rule">
+            <h2>📌 Future Tense (Futur I)</h2>
+            <p>✅ **Formation:** "werden" + infinitive verb.</p>
+        </div>
+
+        <table>
+            <tr>
+                <th>Person</th>
+                <th>lernen</th>
+                <th>gehen</th>
+                <th>sehen</th>
+                <th>machen</th>
+                <th>arbeiten</th>
+                <th>essen</th>
+                <th>schlafen</th>
+                <th>kommen</th>
+            </tr>
+            <tr>
+                <td>ich</td>
+                <td>werde lernen</td>
+                <td>werde gehen</td>
+                <td>werde sehen</td>
+                <td>werde machen</td>
+                <td>werde arbeiten</td>
+                <td>werde essen</td>
+                <td>werde schlafen</td>
+                <td>werde kommen</td>
+            </tr>
+            <tr>
+                <td>du</td>
+                <td>wirst lernen</td>
+                <td>wirst gehen</td>
+                <td>wirst sehen</td>
+                <td>wirst machen</td>
+                <td>wirst arbeiten</td>
+                <td>wirst essen</td>
+                <td>wirst schlafen</td>
+                <td>wirst kommen</td>
+            </tr>
+            <tr>
+                <td>er/sie/es</td>
+                <td>wird lernen</td>
+                <td>wird gehen</td>
+                <td>wird sehen</td>
+                <td>wird machen</td>
+                <td>wird arbeiten</td>
+                <td>wird essen</td>
+                <td>wird schlafen</td>
+                <td>wird kommen</td>
+            </tr>
+            <tr>
+                <td>wir</td>
+                <td>werden lernen</td>
+                <td>werden gehen</td>
+                <td>werden sehen</td>
+                <td>werden machen</td>
+                <td>werden arbeiten</td>
+                <td>werden essen</td>
+                <td>werden schlafen</td>
+                <td>werden kommen</td>
+            </tr>
+            <tr>
+                <td>ihr</td>
+                <td>werdet lernen</td>
+                <td>werdet gehen</td>
+                <td>werdet sehen</td>
+                <td>werdet machen</td>
+                <td>werdet arbeiten</td>
+                <td>werdet essen</td>
+                <td>werdet schlafen</td>
+                <td>werdet kommen</td>
+            </tr>
+            <tr>
+                <td>sie/Sie</td>
+                <td>werden lernen</td>
+                <td>werden gehen</td>
+                <td>werden sehen</td>
+                <td>werden machen</td>
+                <td>werden arbeiten</td>
+                <td>werden essen</td>
+                <td>werden schlafen</td>
+                <td>werden kommen</td>
+            </tr>
+        </table>
+    </div>
+
     <script>
         let words = { easy: [], medium: [], hard: [] };
         let currentWords = [], currentCard, score = 0, bestScore = localStorage.getItem("bestScore") || 0;
@@ -398,7 +699,7 @@
             document.getElementById("flashcard").style.background = "white";
             //document.getElementById("pronunciation").src = currentCard.audio;
         }
-        
+
         function playPronunciation() {
             const audio = new Audio(currentCard.audio);
             audio.play();
@@ -443,4 +744,5 @@
         document.addEventListener("DOMContentLoaded", () => { loadWords(); saveScore(); });
     </script>
 </body>
+
 </html>
