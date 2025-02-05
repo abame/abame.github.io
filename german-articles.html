@@ -188,7 +188,7 @@
             font-weight: bold;
         }
 
-        .rule {
+        div.rule {
             width: 80%;
             margin: auto;
             background: #fff;
@@ -197,6 +197,14 @@
             border-radius: 5px;
             margin-bottom: 20px;
             text-align: left;
+        }
+        .example {
+            font-style: italic;
+            color: #2c3e50;
+        }
+        td.rule {
+            font-weight: bold;
+            color: #d35400;
         }
     </style>
 </head>
@@ -245,8 +253,9 @@
     <!-- Tabs -->
     <div class="tabs">
         <div class="tab active" onclick="openTab('cases')">Cases</div>
-        <div class="tab" onclick="openTab('modal-verbs')">Modal Verbs</div>
         <div class="tab" onclick="openTab('verb-conjugation')">Verb Conjugation</div>
+        <div class="tab" onclick="openTab('sentence-structure')">Sentence Structure</div>
+        <div class="tab" onclick="openTab('modal-verbs')">Modal Verbs</div>
     </div>
 
     <!-- Cases Tab Content -->
@@ -494,6 +503,74 @@
                 <td>zwischen</td>
                 <td>Accusative / Dative</td>
                 <td>between</td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="sentence-structure" class="tab-content">
+
+        <h2>📌 German Sentence Structure Rules</h2>
+
+        <table>
+            <tr>
+                <th>Sentence Type</th>
+                <th>Rule</th>
+                <th>Word Order</th>
+                <th>Example</th>
+            </tr>
+            <tr>
+                <td><strong>Main Clause (Hauptsatz)</strong></td>
+                <td class="rule">The verb must be in the second position.</td>
+                <td>Subject – Verb – Object</td>
+                <td class="example">Ich kaufe ein Buch. (I buy a book.)</td>
+            </tr>
+            <tr>
+                <td><strong>Inverted Order (Adverb First)</strong></td>
+                <td class="rule">If the sentence starts with an adverb or time phrase, the verb still stays in the second position.</td>
+                <td>Adverb – Verb – Subject – Object</td>
+                <td class="example">Heute kaufe ich ein Buch. (Today I buy a book.)</td>
+            </tr>
+            <tr>
+                <td><strong>Yes/No Question (Ja/Nein Frage)</strong></td>
+                <td class="rule">The verb comes first, followed by the subject.</td>
+                <td>Verb – Subject – Object</td>
+                <td class="example">Hast du Zeit? (Do you have time?)</td>
+            </tr>
+            <tr>
+                <td><strong>W-Question (W-Frage)</strong></td>
+                <td class="rule">A question word starts the sentence, followed by the verb.</td>
+                <td>Question Word – Verb – Subject – Object</td>
+                <td class="example">Wann beginnt der Film? (When does the movie start?)</td>
+            </tr>
+            <tr>
+                <td><strong>Subordinate Clause (Nebensatz)</strong></td>
+                <td class="rule">In a subordinate clause, the verb moves to the end.</td>
+                <td>Conjunction – Subject – Object – Verb</td>
+                <td class="example">Ich weiß, dass du recht hast. (I know that you are right.)</td>
+            </tr>
+            <tr>
+                <td><strong>Modal Verb Sentence</strong></td>
+                <td class="rule">The modal verb is in the second position, and the main verb is in the infinitive form at the end.</td>
+                <td>Subject – Modal Verb – Object – Infinitive Verb</td>
+                <td class="example">Ich kann Deutsch sprechen. (I can speak German.)</td>
+            </tr>
+            <tr>
+                <td><strong>Perfect Tense (Perfekt)</strong></td>
+                <td class="rule">The auxiliary verb (*haben/sein*) is in the second position, and the past participle moves to the end.</td>
+                <td>Subject – Auxiliary Verb – Object – Past Participle</td>
+                <td class="example">Ich habe einen Apfel gegessen. (I have eaten an apple.)</td>
+            </tr>
+            <tr>
+                <td><strong>Future Tense (Futur I)</strong></td>
+                <td class="rule">The verb *werden* is in the second position, and the main verb stays at the end in infinitive form.</td>
+                <td>Subject – "werden" – Object – Infinitive Verb</td>
+                <td class="example">Ich werde nach Berlin fahren. (I will go to Berlin.)</td>
+            </tr>
+            <tr>
+                <td><strong>Time-Manner-Place (TMP Rule)</strong></td>
+                <td class="rule">Adverbs of time come first, followed by manner (how), then place.</td>
+                <td>Subject – Verb – Time – Manner – Place</td>
+                <td class="example">Ich fahre morgen mit dem Bus nach Berlin. (I will go to Berlin by bus tomorrow.)</td>
             </tr>
         </table>
     </div>
