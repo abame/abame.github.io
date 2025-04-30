@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>German Flashcards</title>
+
+    <style>
+        /* General styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px 0;
+            margin: 0;
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-top: 20px;
+        }
+
+        h3 {
+            color: #34495e;
+            font-size: 1.5em;
+            margin-top: 15px;
+        }
+
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+
+        /* Table styling */
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ddd;
+        }
+
+        th,
+        td {
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        td {
+            background-color: #f9f9f9;
+        }
+
+        tr:nth-child(even) td {
+            background-color: #f1f1f1;
+        }
+
+        tr:hover td {
+            background-color: #f1f9f1;
+        }
+
+        /* Enhanced styling for ul and li */
+        ul {
+            margin: 20px auto;
+            padding-left: 20px;
+            font-size: 1.1em;
+            max-width: 90%;
+            list-style: none;
+        }
+
+        ul li {
+            position: relative;
+            margin: 12px 0;
+            padding-left: 30px;
+            font-size: 1.1em;
+            line-height: 1.6;
+            text-align: left;
+            transition: background-color 0.3s ease, padding-left 0.3s ease;
+        }
+
+        ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            font-size: 1.5em;
+            color: #4CAF50;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        ul li:hover {
+            background-color: #f2f2f2;
+            padding-left: 35px;
+            /* Indentation effect on hover */
+        }
+
+        ul li a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .tab {
+            padding: 12px 20px;
+            margin: 0 5px;
+            cursor: pointer;
+            background-color: #ddd;
+            border-radius: 5px 5px 0 0;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .tab:hover {
+            background-color: #bbb;
+        }
+
+        .tab.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 20px;
+            border: 2px solid #4CAF50;
+            background: white;
+            border-radius: 0 0 5px 5px;
+            width: 95%;
+            margin: auto;
+            text-align: left;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            table {
+                width: 95%;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            h3 {
+                font-size: 1.3em;
+            }
+
+            p,
+            ul {
+                font-size: 1em;
+            }
+
+            ul li {
+                font-size: 1em;
+            }
+        }
+
+        /* Style for bolded text */
+        .bold {
+            font-weight: bold;
+        }
+
+        div.rule {
+            width: 80%;
+            margin: auto;
+            background: #fff;
+            padding: 15px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .example {
+            font-style: italic;
+            color: #2c3e50;
+        }
+
+        td.rule {
+            font-weight: bold;
+            color: #d35400;
+        }
+    </style>
+</head>
+
+<body style="font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f4; margin: 0; padding: 20px;">
+
+    <h1>Learn German Conjugation</h1>
+
+    <!-- Header -->
+    <h1 style="margin-top: 2rem;">German Conjugation: Infinitiv, Präsens, Perfekt, Präteritum</h1>
+
+    <!-- Tabs -->
+    <div class="tabs">
+        <div class="tab active" onclick="openTab('infinitive')">Infinitiv</div>
+        <div class="tab" onclick="openTab('praesens')">Präsens</div>
+        <div class="tab" onclick="openTab('perfekt')">Perfekt</div>
+        <div class="tab" onclick="openTab('praeteritum')">Präteritum</div>
+        <!-- <div class="tab" onclick="openTab('modal-verbs')">Modal Verbs</div> -->
+    </div>
+
+    <!-- Cases Tab Content -->
+    <div id="infinitive" class="tab-content active">
+        <table border="1">
+            <thead>
+              <tr>
+                <th>Deutsch</th>
+                <th>Englisch</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>sammeln</td><td>to collect</td></tr>
+              <tr><td>führen</td><td>to lead</td></tr>
+              <tr><td>rauchen</td><td>to smoke</td></tr>
+              <tr><td>lieben</td><td>to love</td></tr>
+              <tr><td>frühstücken</td><td>to have breakfast</td></tr>
+              <tr><td>gehören</td><td>to belong</td></tr>
+              <tr><td>züchten</td><td>to breed</td></tr>
+              <tr><td>fühlen</td><td>to feel</td></tr>
+              <tr><td>arbeiten</td><td>to work</td></tr>
+              <tr><td>einkaufen</td><td>to shop</td></tr>
+              <tr><td>zusammenleben</td><td>to live together</td></tr>
+              <tr><td>ausüben</td><td>to practice / exercise</td></tr>
+              <tr><td>gehen</td><td>to go</td></tr>
+              <tr><td>lesen</td><td>to read</td></tr>
+              <tr><td>essen</td><td>to eat</td></tr>
+              <tr><td>schreiben</td><td>to write</td></tr>
+              <tr><td>nehmen</td><td>to take</td></tr>
+              <tr><td>bleiben</td><td>to stay</td></tr>
+              <tr><td>stehen</td><td>to stand</td></tr>
+              <tr><td>trinken</td><td>to drink</td></tr>
+              <tr><td>denken</td><td>to think</td></tr>
+              <tr><td>haben</td><td>to have</td></tr>
+              <tr><td>sein</td><td>to be</td></tr>
+              <tr><td>beginnen</td><td>to begin</td></tr>
+              <tr><td>verlassen</td><td>to leave</td></tr>
+              <tr><td>heißen</td><td>to be called / to mean</td></tr>
+              <tr><td>schlafen</td><td>to sleep</td></tr>
+              <tr><td>kennenlernen</td><td>to get to know</td></tr>
+              <tr><td>erleben</td><td>to experience</td></tr>
+              <tr><td>konzentrieren</td><td>to concentrate</td></tr>
+              <tr><td>halten</td><td>to stop/to hold</td></tr>
+              <tr><td>sterben</td><td>to die</td></tr>
+              <tr><td>sinken</td><td>to sink / to decrease</td></tr>
+              <tr><td>versuchen</td><td>to try</td></tr>
+              <tr><td>gehen</td><td>to go</td></tr>
+              <tr><td>fliehen</td><td>to flee/to run</td></tr>
+              <tr><td>stecken</td><td>to stick/to put</td></tr>
+              <tr><td>machen</td><td>to make / to do</td></tr>
+              <tr><td>öffnen</td><td>to open</td></tr>
+              <tr><td>kennen</td><td>to know</td></tr>
+              <tr><td>einschlafen</td><td>to fall asleep</td></tr>
+            </tbody>
+          </table>
+          
+    </div>
+
+    <div id="praeteritum" class="tab-content">
+
+        <h2>✅ Regular Verbs (Präteritum = Stamm + -te)</h2>
+        <table border="1">
+        <thead>
+            <tr><th>Verb</th><th>ich</th><th>du</th><th>er/sie/es</th><th>wir</th><th>ihr</th><th>sie/Sie</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>sammeln</td><td>sammelte</td><td>sammeltest</td><td>sammelte</td><td>sammelten</td><td>sammeltet</td><td>sammelten</td></tr>
+            <tr><td>führen</td><td>führte</td><td>führtest</td><td>führte</td><td>führten</td><td>führtet</td><td>führten</td></tr>
+            <tr><td>rauchen</td><td>rauchte</td><td>rauchtest</td><td>rauchte</td><td>rauchten</td><td>rauchtet</td><td>rauchten</td></tr>
+            <tr><td>lieben</td><td>liebte</td><td>liebtest</td><td>liebte</td><td>liebten</td><td>liebtet</td><td>liebten</td></tr>
+            <tr><td>frühstücken</td><td>frühstückte</td><td>frühstücktest</td><td>frühstückte</td><td>frühstückten</td><td>frühstücktet</td><td>frühstückten</td></tr>
+            <tr><td>gehören</td><td>gehörte</td><td>gehörtest</td><td>gehörte</td><td>gehörten</td><td>gehörtet</td><td>gehörten</td></tr>
+            <tr><td>züchten</td><td>züchtete</td><td>züchtetest</td><td>züchtete</td><td>züchteten</td><td>züchtetet</td><td>züchteten</td></tr>
+            <tr><td>fühlen</td><td>fühlte</td><td>fühltest</td><td>fühlte</td><td>fühlten</td><td>fühltet</td><td>fühlten</td></tr>
+            <tr><td>arbeiten</td><td>arbeitete</td><td>arbeitetest</td><td>arbeitete</td><td>arbeiteten</td><td>arbeitetet</td><td>arbeiteten</td></tr>
+            <tr><td>erleben</td><td>erlebte</td><td>erlebtest</td><td>erlebte</td><td>erlebten</td><td>erlebtet</td><td>erlebten</td></tr>
+            <tr><td>konzentrieren</td><td>konzentrierte</td><td>konzentrierte</td><td>konzentrierte</td><td>konzentrierten</td><td>konzentriertet</td><td>konzentrierten</td></tr>
+        </tbody>
+        </table>
+        <h2>🔄 Trennbare Verben (Regular)</h2>
+        <table border="1">
+          <thead>
+            <tr><th>Verb</th><th>ich</th><th>du</th><th>er/sie/es</th><th>wir</th><th>ihr</th><th>sie/Sie</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>einkaufen</td><td>kaufte ein</td><td>kauftest ein</td><td>kaufte ein</td><td>kauften ein</td><td>kauftet ein</td><td>kauften ein</td></tr>
+            <tr><td>zusammenleben</td><td>lebte zusammen</td><td>lebtest zusammen</td><td>lebte zusammen</td><td>lebten zusammen</td><td>lebtet zusammen</td><td>lebten zusammen</td></tr>
+            <tr><td>ausüben</td><td>übte aus</td><td>übstest aus</td><td>übte aus</td><td>übten aus</td><td>übtet aus</td><td>übten aus</td></tr>
+            <tr><td>kennenlernen</td><td>lernte kennen</td><td>lerntest kennen</td><td>lernte kennen</td><td>lernten kennen</td><td>lerntet kennen</td><td>lernten kennen</td></tr>
+          </tbody>
+        </table>
+        <h2>🔁 Irregular Verbs (Stammwechsel im Präteritum)</h2>
+        <table border="1">
+        <thead>
+            <tr><th>Verb</th><th>ich</th><th>du</th><th>er/sie/es</th><th>wir</th><th>ihr</th><th>sie/Sie</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>gehen</td><td>ging</td><td>gingst</td><td>ging</td><td>gingen</td><td>gingt</td><td>gingen</td></tr>
+            <tr><td>sehen</td><td>sah</td><td>sahst</td><td>sah</td><td>sahen</td><td>saht</td><td>sahen</td></tr>
+            <tr><td>lesen</td><td>las</td><td>lasest</td><td>las</td><td>lasen</td><td>last</td><td>lasen</td></tr>
+            <tr><td>essen</td><td>aß</td><td>aßest</td><td>aß</td><td>aßen</td><td>aßt</td><td>aßen</td></tr>
+            <tr><td>schreiben</td><td>schrieb</td><td>schriebst</td><td>schrieb</td><td>schrieben</td><td>schriebt</td><td>schrieben</td></tr>
+            <tr><td>nehmen</td><td>nahm</td><td>nahmst</td><td>nahm</td><td>nahmen</td><td>nahmt</td><td>nahmen</td></tr>
+            <tr><td>bleiben</td><td>blieb</td><td>bliebst</td><td>blieb</td><td>blieben</td><td>bliebt</td><td>blieben</td></tr>
+            <tr><td>stehen</td><td>stand</td><td>standest</td><td>stand</td><td>standen</td><td>standet</td><td>standen</td></tr>
+            <tr><td>trinken</td><td>trank</td><td>trankst</td><td>trank</td><td>tranken</td><td>trankt</td><td>tranken</td></tr>
+            <tr><td>denken</td><td>dachte</td><td>dachtest</td><td>dachte</td><td>dachten</td><td>dachtet</td><td>dachten</td></tr>
+            <tr><td>haben</td><td>hatte</td><td>hattest</td><td>hatte</td><td>hatten</td><td>hattet</td><td>hatten</td></tr>
+            <tr><td>sein</td><td>war</td><td>warst</td><td>war</td><td>waren</td><td>wart</td><td>waren</td></tr>
+            <tr><td>beginnen</td><td>begann</td><td>begannst</td><td>begann</td><td>begannen</td><td>begannt</td><td>begannen</td></tr>
+            <tr><td>verlassen</td><td>verließ</td><td>verließest</td><td>verließ</td><td>verließen</td><td>verließt</td><td>verließen</td></tr>
+            <tr><td>heißen</td><td>hieß</td><td>hießest</td><td>hieß</td><td>hießen</td><td>hießt</td><td>hießen</td></tr>
+            <tr><td>schlafen</td><td>schlief</td><td>schliefst</td><td>schlief</td><td>schliefen</td><td>schlieft</td><td>schliefen</td></tr>
+            <tr><td>halten</td><td>hielt</td><td>hieltest</td><td>hielt</td><td>hielten</td><td>hieltet</td><td>hielten</td></tr>
+            <tr><td>sterben</td><td>starb</td><td>starbst</td><td>starb</td><td>starben</td><td>starbt</td><td>starben</td></tr>
+            <tr><td>sinken</td><td>sank</td><td>sankst</td><td>sank</td><td>sanken</td><td>sankt</td><td>sanken</td></tr>
+        </tbody>
+        </table>
+
+    </div>
+
+    <!-- <div id="modal-verbs" class="tab-content">
+    </div> -->
+
+    <div id="perfekt" class="tab-content">
+        <h2>✅ Perfect Tense (Perfekt) Conjugations</h2>
+
+        <div class="rule">
+            <p>✅ Rule: (haben|sein) konjugiert im Prasens + verb konjugiert im Partizip II
+            </p>
+        </div>
+
+        <table border="1">
+        <thead>
+            <tr><th>Verb</th><th>ich</th><th>du</th><th>er/sie/es</th><th>wir</th><th>ihr</th><th>sie/Sie</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>sammeln</td><td>habe gesammelt</td><td>hast gesammelt</td><td>hat gesammelt</td><td>haben gesammelt</td><td>habt gesammelt</td><td>haben gesammelt</td></tr>
+            <tr><td>führen</td><td>habe geführt</td><td>hast geführt</td><td>hat geführt</td><td>haben geführt</td><td>habt geführt</td><td>haben geführt</td></tr>
+            <tr><td>rauchen</td><td>habe geraucht</td><td>hast geraucht</td><td>hat geraucht</td><td>haben geraucht</td><td>habt geraucht</td><td>haben geraucht</td></tr>
+            <tr><td>lieben</td><td>habe geliebt</td><td>hast geliebt</td><td>hat geliebt</td><td>haben geliebt</td><td>habt geliebt</td><td>haben geliebt</td></tr>
+            <tr><td>frühstücken</td><td>habe gefrühstückt</td><td>hast gefrühstückt</td><td>hat gefrühstückt</td><td>haben gefrühstückt</td><td>habt gefrühstückt</td><td>haben gefrühstückt</td></tr>
+            <tr><td>gehören</td><td>habe gehört</td><td>hast gehört</td><td>hat gehört</td><td>haben gehört</td><td>habt gehört</td><td>haben gehört</td></tr>
+            <tr><td>züchten</td><td>habe gezüchtet</td><td>hast gezüchtet</td><td>hat gezüchtet</td><td>haben gezüchtet</td><td>habt gezüchtet</td><td>haben gezüchtet</td></tr>
+            <tr><td>fühlen</td><td>habe gefühlt</td><td>hast gefühlt</td><td>hat gefühlt</td><td>haben gefühlt</td><td>habt gefühlt</td><td>haben gefühlt</td></tr>
+            <tr><td>arbeiten</td><td>habe gearbeitet</td><td>hast gearbeitet</td><td>hat gearbeitet</td><td>haben gearbeitet</td><td>habt gearbeitet</td><td>haben gearbeitet</td></tr>
+            <tr><td>einkaufen</td><td>habe eingekauft</td><td>hast eingekauft</td><td>hat eingekauft</td><td>haben eingekauft</td><td>habt eingekauft</td><td>haben eingekauft</td></tr>
+            <tr><td>zusammenleben</td><td>habe zusammengelebt</td><td>hast zusammengelebt</td><td>hat zusammengelebt</td><td>haben zusammengelebt</td><td>habt zusammengelebt</td><td>haben zusammengelebt</td></tr>
+            <tr><td>ausüben</td><td>habe ausgeübt</td><td>hast ausgeübt</td><td>hat ausgeübt</td><td>haben ausgeübt</td><td>habt ausgeübt</td><td>haben ausgeübt</td></tr>
+            <tr><td>gehen</td><td>bin gegangen</td><td>bist gegangen</td><td>ist gegangen</td><td>sind gegangen</td><td>seid gegangen</td><td>sind gegangen</td></tr>
+            <tr><td>lesen</td><td>habe gelesen</td><td>hast gelesen</td><td>hat gelesen</td><td>haben gelesen</td><td>habt gelesen</td><td>haben gelesen</td></tr>
+            <tr><td>essen</td><td>habe gegessen</td><td>hast gegessen</td><td>hat gegessen</td><td>haben gegessen</td><td>habt gegessen</td><td>haben gegessen</td></tr>
+            <tr><td>schreiben</td><td>habe geschrieben</td><td>hast geschrieben</td><td>hat geschrieben</td><td>haben geschrieben</td><td>habt geschrieben</td><td>haben geschrieben</td></tr>
+            <tr><td>nehmen</td><td>habe genommen</td><td>hast genommen</td><td>hat genommen</td><td>haben genommen</td><td>habt genommen</td><td>haben genommen</td></tr>
+            <tr><td>bleiben</td><td>bin geblieben</td><td>bist geblieben</td><td>ist geblieben</td><td>sind geblieben</td><td>seid geblieben</td><td>sind geblieben</td></tr>
+            <tr><td>stehen</td><td>habe gestanden</td><td>hast gestanden</td><td>hat gestanden</td><td>haben gestanden</td><td>habt gestanden</td><td>haben gestanden</td></tr>
+            <tr><td>trinken</td><td>habe getrunken</td><td>hast getrunken</td><td>hat getrunken</td><td>haben getrunken</td><td>habt getrunken</td><td>haben getrunken</td></tr>
+            <tr><td>denken</td><td>habe gedacht</td><td>hast gedacht</td><td>hat gedacht</td><td>haben gedacht</td><td>habt gedacht</td><td>haben gedacht</td></tr>
+            <tr><td>haben</td><td>habe gehabt</td><td>hast gehabt</td><td>hat gehabt</td><td>haben gehabt</td><td>habt gehabt</td><td>haben gehabt</td></tr>
+            <tr><td>sein</td><td>bin gewesen</td><td>bist gewesen</td><td>ist gewesen</td><td>sind gewesen</td><td>seid gewesen</td><td>sind gewesen</td></tr>
+            <tr><td>beginnen</td><td>habe begonnen</td><td>hast begonnen</td><td>hat begonnen</td><td>haben begonnen</td><td>habt begonnen</td><td>haben begonnen</td></tr>
+            <tr><td>verlassen</td><td>habe verlassen</td><td>hast verlassen</td><td>hat verlassen</td><td>haben verlassen</td><td>habt verlassen</td><td>haben verlassen</td></tr>
+            <tr><td>heißen</td><td>habe geheißen</td><td>hast geheißen</td><td>hat geheißen</td><td>haben geheißen</td><td>habt geheißen</td><td>haben geheißen</td></tr>
+            <tr><td>schlafen</td><td>habe geschlafen</td><td>hast geschlafen</td><td>hat geschlafen</td><td>haben geschlafen</td><td>habt geschlafen</td><td>haben geschlafen</td></tr>
+            <tr><td>kennenlernen</td><td>habe kennengelernt</td><td>hast kennengelernt</td><td>hat kennengelernt</td><td>haben kennengelernt</td><td>habt kennengelernt</td><td>haben kennengelernt</td></tr>
+            <tr><td>erleben</td><td>habe erlebt</td><td>hast erlebt</td><td>hat erlebt</td><td>haben erlebt</td><td>habt erlebt</td><td>haben erlebt</td></tr>
+            <tr><td>konzentrieren</td><td>habe konzentriert</td><td>hast konzentriert</td><td>hat konzentriert</td><td>haben konzentriert</td><td>habt konzentriert</td><td>haben konzentriert</td></tr>
+            <tr><td>halten</td><td>habe gehalten</td><td>hast gehalten</td><td>hat gehalten</td><td>haben gehalten</td><td>habt gehalten</td><td>haben gehalten</td></tr>
+            <tr><td>sterben</td><td>bin gestorben</td><td>bist gestorben</td><td>ist gestorben</td><td>sind gestorben</td><td>seid gestorben</td><td>sind gestorben</td></tr>
+            <tr><td>sinken</td><td>bin gesunken</td><td>bist gesunken</td><td>ist gesunken</td><td>sind gesunken</td><td>seid gesunken</td><td>sind gesunken</td></tr>
+            <tr><td>steigen</td><td>bin gesteigen</td><td>bist gesteigen</td><td>ist gesteigen</td><td>sind gesteigen</td><td>seid gesteigen</td><td>sind gesteigen</td></tr>
+            <tr><td>zunehmen</td><td>habe zugenommen</td><td>hast zugenommen</td><td>hat zugenommen</td><td>haben zugenommen</td><td>habt zugenommen</td><td>haben zugenommen</td></tr>
+        </tbody>
+        </table>
+
+    </div>
+
+    <div id="praesens" class="tab-content">
+        <table border="1">
+            <thead>
+              <tr>
+                <th>Verb</th>
+                <th>ich</th>
+                <th>du</th>
+                <th>er/sie/es</th>
+                <th>wir</th>
+                <th>ihr</th>
+                <th>sie/Sie</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>sammeln</td><td>sammle</td><td>sammelst</td><td>sammelt</td><td>sammeln</td><td>sammelt</td><td>sammeln</td></tr>
+              <tr><td>führen</td><td>führe</td><td>führst</td><td>führt</td><td>führen</td><td>führt</td><td>führen</td></tr>
+              <tr><td>rauchen</td><td>rauche</td><td>rauchst</td><td>raucht</td><td>rauchen</td><td>raucht</td><td>rauchen</td></tr>
+              <tr><td>lieben</td><td>liebe</td><td>liebst</td><td>liebt</td><td>lieben</td><td>liebt</td><td>lieben</td></tr>
+              <tr><td>frühstücken</td><td>frühstücke</td><td>frühstückst</td><td>frühstückt</td><td>frühstücken</td><td>frühstückt</td><td>frühstücken</td></tr>
+              <tr><td>gehören</td><td>gehöre</td><td>gehörst</td><td>gehört</td><td>gehören</td><td>gehört</td><td>gehören</td></tr>
+              <tr><td>züchten</td><td>züchte</td><td>züchtest</td><td>züchtet</td><td>züchten</td><td>züchtet</td><td>züchten</td></tr>
+              <tr><td>fühlen</td><td>fühle</td><td>fühlst</td><td>fühlt</td><td>fühlen</td><td>fühlt</td><td>fühlen</td></tr>
+              <tr><td>arbeiten</td><td>arbeite</td><td>arbeitest</td><td>arbeitet</td><td>arbeiten</td><td>arbeitet</td><td>arbeiten</td></tr>
+              <tr><td>einkaufen</td><td>kaufe ein</td><td>kaufst ein</td><td>kauft ein</td><td>kaufen ein</td><td>kauft ein</td><td>kaufen ein</td></tr>
+              <tr><td>zusammenleben</td><td>lebe zusammen</td><td>lebst zusammen</td><td>lebt zusammen</td><td>leben zusammen</td><td>lebt zusammen</td><td>leben zusammen</td></tr>
+              <tr><td>ausüben</td><td>übe aus</td><td>übst aus</td><td>übt aus</td><td>üben aus</td><td>übt aus</td><td>üben aus</td></tr>
+              <tr><td>gehen</td><td>gehe</td><td>gehst</td><td>geht</td><td>gehen</td><td>geht</td><td>gehen</td></tr>
+              <tr><td>lesen</td><td>lese</td><td>liest</td><td>liest</td><td>lesen</td><td>lest</td><td>lesen</td></tr>
+              <tr><td>essen</td><td>esse</td><td>isst</td><td>isst</td><td>essen</td><td>esst</td><td>essen</td></tr>
+              <tr><td>schreiben</td><td>schreibe</td><td>schreibst</td><td>schreibt</td><td>schreiben</td><td>schreibt</td><td>schreiben</td></tr>
+              <tr><td>nehmen</td><td>nehme</td><td>nimmst</td><td>nimmt</td><td>nehmen</td><td>nehmt</td><td>nehmen</td></tr>
+              <tr><td>bleiben</td><td>bleibe</td><td>bleibst</td><td>bleibt</td><td>bleiben</td><td>bleibt</td><td>bleiben</td></tr>
+              <tr><td>stehen</td><td>stehe</td><td>stehst</td><td>steht</td><td>stehen</td><td>steht</td><td>stehen</td></tr>
+              <tr><td>trinken</td><td>trinke</td><td>trinkst</td><td>trinkt</td><td>trinken</td><td>trinkt</td><td>trinken</td></tr>
+              <tr><td>denken</td><td>denke</td><td>denkst</td><td>denkt</td><td>denken</td><td>denkt</td><td>denken</td></tr>
+              <tr><td>haben</td><td>habe</td><td>hast</td><td>hat</td><td>haben</td><td>habt</td><td>haben</td></tr>
+              <tr><td>sein</td><td>bin</td><td>bist</td><td>ist</td><td>sind</td><td>seid</td><td>sind</td></tr>
+              <tr><td>beginnen</td><td>beginne</td><td>beginnst</td><td>beginnt</td><td>beginnen</td><td>beginnt</td><td>beginnen</td></tr>
+              <tr><td>verlassen</td><td>verlasse</td><td>verlässt</td><td>verlässt</td><td>verlassen</td><td>verlasst</td><td>verlassen</td></tr>
+              <tr><td>heißen</td><td>heiße</td><td>heißt</td><td>heißt</td><td>heißen</td><td>heißt</td><td>heißen</td></tr>
+              <tr><td>schlafen</td><td>schlafe</td><td>schläfst</td><td>schläft</td><td>schlafen</td><td>schlaft</td><td>schlafen</td></tr>
+              <tr><td>kennenlernen</td><td>lerne kennen</td><td>lernst kennen</td><td>lernt kennen</td><td>lernen kennen</td><td>lernt kennen</td><td>lernen kennen</td></tr>
+              <tr><td>erleben</td><td>erlebe</td><td>erlebst</td><td>erlebt</td><td>erleben</td><td>erlebt</td><td>erleben</td></tr>
+              <tr><td>konzentrieren</td><td>konzentriere</td><td>konzentrierst</td><td>konzentriert</td><td>konzentrieren</td><td>konzentriert</td><td>konzentrieren</td></tr>
+              <tr><td>halten</td><td>halte</td><td>hältst</td><td>hält</td><td>halten</td><td>haltet</td><td>halten</td></tr>
+              <tr><td>sterben</td><td>sterbe</td><td>stirbst</td><td>stirbt</td><td>sterben</td><td>sterbt</td><td>sterben</td></tr>
+              <tr><td>sinken</td><td>sinke</td><td>sinkst</td><td>sinkt</td><td>sinken</td><td>sinkt</td><td>sinken</td></tr>
+            </tbody>
+          </table>
+          
+    </div>
+
+    <script>
+        function openTab(tabName) {
+            // Hide all tab contents
+            let contents = document.querySelectorAll(".tab-content");
+            contents.forEach(content => content.classList.remove("active"));
+
+            // Deactivate all tabs
+            let tabs = document.querySelectorAll(".tab");
+            tabs.forEach(tab => tab.classList.remove("active"));
+
+            // Show the selected tab and highlight it
+            document.getElementById(tabName).classList.add("active");
+            event.target.classList.add("active");
+        }
+    </script>
+</body>
+
+</html>
